@@ -1,7 +1,8 @@
 import "./styles.css"
 import {useState,useEffect} from 'react'
 import Inventory from "./Inventory";
-import Info from "./Info";
+//import Info from "./Info";
+import Dialog from "./Dialog";
 export default function App(){
 
   const [data,setData]=useState([])
@@ -73,30 +74,37 @@ export default function App(){
       return item.id==id
     })
     setInformation(info)
+    dialog.showModal();
   }
-
+  function resetButtons(){
+    const btns = document.getElementsByClassName('btn-selected')
+    Array.from(btns).forEach((element) => {
+        element.className="btn"
+    });
+}
   useEffect(()=>{
     getData()
   },[])
   return (
     <>
       <div className="header">
-        <h2>Header</h2>
+        <h2>Trackit</h2>
       </div>
 
       <div className="topnav">
-        <a href="#">Link</a>
-        <a href="#">Link</a>
+        <a href="#">Inventory</a>
+        <a href="#">New Customer</a>
         <a href="#">Link</a>
       </div>
 
       <div className="row">
-        <div className="column side">
+       {/* <div className="column side">
           <Info idata={information}/>
-        </div>
+      </div>*/}
 
         <div className="column middle">
-          <Inventory renderInfo={renderInfo} data={data}/>
+          <Dialog  idata={information} resetButtons={resetButtons}/>
+          <Inventory renderInfo={renderInfo} data={data} resetButtons={resetButtons}/>
         </div>
       </div>
     </>

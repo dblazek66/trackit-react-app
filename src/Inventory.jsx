@@ -1,19 +1,12 @@
+export default function Inventory({ renderInfo, data, resetButtons }) {
+  const handleInfo = (id, e) => {
+    resetButtons();
+    e.target.className = "btn-selected";
+    renderInfo(id);
+  };
 
-export default function Inventory({renderInfo,data}){
-
-   const handleInfo = (id,e)=>{
-        resetButtons()
-            e.target.className="btn-selected"
-        renderInfo(id)
-    }
-
-    function resetButtons(){
-        const btns = document.getElementsByClassName('btn-selected')
-        Array.from(btns).forEach((element) => {
-            element.className="btn"
-        });
-    }
-    return (
+  return (
+    <>
       <table>
         <thead>
           <tr>
@@ -32,7 +25,12 @@ export default function Inventory({renderInfo,data}){
               return (
                 <tr key={item.id}>
                   <td>
-                    <button className='btn' onClick={(e) => handleInfo(item.id, e)}>info</button>
+                    <button
+                      className="btn"
+                      onClick={(e) => handleInfo(item.id, e)}
+                    >
+                      info
+                    </button>
                   </td>
                   <td>{item.Customer}</td>
                   <td>{item.Status}</td>
@@ -40,9 +38,10 @@ export default function Inventory({renderInfo,data}){
                   <td>{item.ContactInfo || item.Phone}</td>
                   <td>{item.LastContacted || "-"}</td>
                 </tr>
-              )
+              );
             })}
         </tbody>
       </table>
-    );
+    </>
+  );
 }

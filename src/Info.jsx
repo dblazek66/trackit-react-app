@@ -23,7 +23,6 @@ export default function Info({idata}){
           <div>
             <label>Status: </label>
             {idata.Status}
-           
           </div>
           <div>
             <label>LastContacted: </label>
