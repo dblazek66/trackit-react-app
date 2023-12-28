@@ -1,113 +1,30 @@
 import "./styles.css"
 import {useState,useEffect} from 'react'
 import Inventory from "./Inventory";
-//import Info from "./Info";
+import DashBoard from "./DashBoard";
+import Customers from "./Customers";
+import NavBar from "./NavBar"
+import Info from "./Info";
 import Dialog from "./Dialog";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+
 export default function App(){
 
-  const [data,setData]=useState([])
-  const [information,setInformation]=useState([])
-  const customers = [
-    {
-        "id":"1",
-        "Customer":"Jim Johnsons Jolly Jam Company",
-        "TicketNum":"",
-        "Phone":"000-256-2653",
-        "Address":"222 Main Street",
-        "City":"Whoville",
-        "State":"Maryland",
-        "Contact":"Jimbo Johnson",
-        "ContactInfo":"000-999-5254",
-        "Notes":"-",
-        "LastContacted":"",
-        "Status":"New",
-        "AssignedTo":"-",
-        "ScheduleDate":"",
-        "ScheduleTime":"",
-        "ScheduleLocation":"-"
-    },
-    {
-        "id":"2",
-        "Customer":"Ricky Robinsons Roll",
-        "TicketNum":"",
-        "Phone":"255-996-6633",
-        "Address":"2356 Market Street",
-        "City":"Rattletowwn",
-        "State":"Maryland",
-        "Contact":"Ronny Roll",
-        "ContactInfo":"",
-        "Notes":"-",
-        "LastContacted":"2023-12-20",
-        "Status":"Contacted",
-        "AssignedTo":"-",
-        "ScheduleDate":"",
-        "ScheduleTime":"",
-        "ScheduleLocation":"-"
-    },
-    {
-        "id":"3",
-        "Customer":"Crazy Carls Crashed Cars",
-        "TicketNum":"",
-        "Phone":"351-859-3555",
-        "Address":"9000 Park Street Suite A",
-        "City":"Dingleberry",
-        "State":"Maryland",
-        "Contact":"Cassidy Yates",
-        "ContactInfo":"",
-        "Notes":"-",
-        "LastContacted":"2023-12-22",
-        "Status":"Scheduled",
-        "AssignedTo":"-",
-        "ScheduleDate":"2024-01-19",
-        "ScheduleTime":"9:30 AM",
-        "ScheduleLocation":"522 East West Ave, Dingleberry, MD"
-    }
-]
-
-  const getData = ()=>{
-      setData(customers)
-  }
-
-  function renderInfo(id){
-   // alert(id)
-    let info = customers.find((item)=>{
-      return item.id==id
-    })
-    setInformation(info)
-    dialog.showModal();
-  }
-  function resetButtons(){
-    const btns = document.getElementsByClassName('btn-selected')
-    Array.from(btns).forEach((element) => {
-        element.className="btn"
-    });
-}
-  useEffect(()=>{
-    getData()
-  },[])
   return (
-    <>
+    <Router>
       <div className="header">
         <h2>Trackit</h2>
       </div>
-
-      <div className="topnav">
-        <a href="#">Inventory</a>
-        <a href="#">New Customer</a>
-        <a href="#">Link</a>
+      <NavBar/>
+      <div className="content">
+          <Routes>
+          <Route path="/" element={<DashBoard/>}/>
+          <Route path="/inventory" element={<Inventory/>}/>
+          <Route path="/customers" element={<Customers/>}/>
+          <Route path="/info/:id" element={<Info/>}/>
+          </Routes>        
       </div>
-
-      <div className="row">
-       {/* <div className="column side">
-          <Info idata={information}/>
-      </div>*/}
-
-        <div className="column middle">
-          <Dialog  idata={information} resetButtons={resetButtons}/>
-          <Inventory renderInfo={renderInfo} data={data} resetButtons={resetButtons}/>
-        </div>
-      </div>
-    </>
+    </Router>
   );
  
     

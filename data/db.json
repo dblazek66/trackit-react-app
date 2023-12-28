@@ -1,0 +1,156 @@
+{
+  "customers": [
+    {
+      "id": "1",
+      "Customer": "Jim Johnsons Jolly Jam Company",
+      "TicketNum": "1001",
+      "Phone": "000-256-2653",
+      "Email": "jjj@gmail.com",
+      "Address": "222 Main Street",
+      "City": "Whoville",
+      "State": "Maryland",
+      "Contact": "Jimbo Johnson",
+      "ContactInfo": "000-999-5254",
+      "CustomerNotes": "-",
+      "LastContacted": "",
+      "Status": "New",
+      "AssignedTo": "-",
+      "ScheduleDate": "",
+      "ScheduleTime": "",
+      "ScheduleLocation": "",
+      "ScheduleNotes": ""
+    },
+    {
+      "id": "2",
+      "Customer": "Ricky Robinsons Roll",
+      "TicketNum": "1002",
+      "Phone": "255-996-6633",
+      "Email": "rrr@gmail.com",
+      "Address": "2356 Market Street",
+      "City": "Rattletowwn",
+      "State": "Maryland",
+      "Contact": "Ronny Roll",
+      "ContactInfo": "",
+      "CustomerNotes": "-",
+      "LastContacted": "2023-12-20",
+      "Status": "Contacted",
+      "AssignedTo": "-",
+      "ScheduleDate": "",
+      "ScheduleTime": "",
+      "ScheduleLocation": "-",
+      "ScheduleNotes": ""
+    },
+    {
+      "id": "3",
+      "Customer": "Crazy Carls Crashed Cars",
+      "TicketNum": "1003",
+      "Phone": "351-859-3555",
+      "Email": "cccc@gmail.com",
+      "Address": "9000 Park Street Suite A",
+      "City": "Dingleberry",
+      "State": "Maryland",
+      "Contact": "Cassidy Yates",
+      "ContactInfo": "",
+      "CustomerNotes": "-",
+      "LastContacted": "2023-12-22",
+      "Status": "Scheduled",
+      "AssignedTo": "-",
+      "ScheduleDate": "2024-01-19",
+      "ScheduleTime": "9:30 AM",
+      "ScheduleLocation": "522 East West Ave, Dingleberry, MD",
+      "ScheduleNotes": ""
+    }
+  ],
+  "status": [
+    {
+      "id": "",
+      "custId": "",
+      "Status": "",
+      "statusDate": "",
+      "statusNotes": "",
+      "schedDate": "",
+      "schedTime": "",
+      "schedNotes": ""
+    },
+    {
+      "custId": "1",
+      "Status": "Contact Initiated",
+      "statusDate": "2023-12-28",
+      "statusNotes": "Left Message. Will call back in 2 days",
+      "schedDate": "",
+      "schedTime": "",
+      "schedNotes": "",
+      "id": "7ANCuxd"
+    },
+    {
+      "custId": "1",
+      "Status": "Contact Made",
+      "statusDate": "2023-12-28",
+      "statusNotes": "Customer returned call",
+      "schedDate": "",
+      "schedTime": "",
+      "schedNotes": "",
+      "id": "PaVkczs"
+    },
+    {
+      "custId": "1",
+      "Status": "Hold",
+      "statusDate": "2023-12-28",
+      "statusNotes": "Customer is out of town till January 15",
+      "schedDate": "",
+      "schedTime": "",
+      "schedNotes": "",
+      "id": "gfl-Hnf"
+    },
+    {
+      "custId": "1",
+      "Status": "Cancelled",
+      "statusDate": "2023-12-28",
+      "statusNotes": "Customer Cancelled appointment",
+      "schedDate": "",
+      "schedTime": "",
+      "schedNotes": "",
+      "id": "3jbd9ul"
+    },
+    {
+      "custId": "1",
+      "Status": "Contact Initiated",
+      "statusDate": "2023-12-28",
+      "statusNotes": "adasdsad",
+      "schedDate": "",
+      "schedTime": "",
+      "schedNotes": "",
+      "id": "TZ5AHgN"
+    },
+    {
+      "custId": "1",
+      "Status": "Contact Initiated",
+      "statusDate": "2023-12-28",
+      "statusNotes": "twerrterewr4er",
+      "schedDate": "",
+      "schedTime": "",
+      "schedNotes": "",
+      "id": "p-Xd5Yh"
+    },
+    {
+      "custId": "3",
+      "Status": "Contact Initiated",
+      "statusDate": "2023-12-28",
+      "statusNotes": "wsdaeasdada",
+      "schedDate": "",
+      "schedTime": "",
+      "schedNotes": "",
+      "id": "ZctE-Jv"
+    },
+    {
+      "custId": "2",
+      "Status": "Contact Initiated",
+      "statusDate": "2023-12-28",
+      "statusNotes": "called customer",
+      "schedDate": "",
+      "schedTime": "",
+      "schedNotes": "",
+      "id": "BX68hZD"
+    }
+  ]
+}
