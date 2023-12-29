@@ -131,6 +131,32 @@
     padding: 8px;
     border-radius: 3px;
   }
+  .btn-sm{
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-left: 2px;
+    margin-right: 2px;
+    min-width: 2em;
+  }
+  .btn-blue{
+    background-color: #2c78ce;
+    color: #fff;
+  }
+  .btn-blue:hover{
+    background-color: #0e2e55;
+  }
+  .btn-red{
+    background-color: #ca0505;
+    color: #fff;
+  }
+  .btn-red:hover{
+    background-color: #810b0b;
+  }
+
   .btn:hover{
     background-color: #617791;
   }
@@ -153,10 +179,10 @@
   /*  Grid display*/
 
   .grid {
-    margin: 1em;
+
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-gap: 2px;
+    grid-gap: 5px;
     counter-reset: div;
   }
  
@@ -174,6 +200,9 @@
   }
   .col-3 {
     grid-column: auto/span 3;
+  }
+  .col-4 {
+    grid-column: auto/span 4;
   }
     .col-6 {
     grid-column: auto/span 6;
@@ -203,8 +232,9 @@
     border: #2c78ce 1px solid;
     padding:5px;
     font-size: 15px;
-    height: 50vh;
+    min-height: 400px;
   }
+ 
 
   .title{
     text-align: center;
@@ -213,8 +243,17 @@
     margin-bottom: 1em;
     margin-top: 1em;
   }
+
   .title-main{
     background-color: #2c78ce;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    padding: .5em;
+    margin-bottom: 1em;
+  }
+  .title-sub{
+    background-color: #5d646b;
     text-align: center;
     font-weight: bold;
     color: #fff;
@@ -234,3 +273,4 @@
   .center {
     text-align:center;
   }
+

@@ -152,5 +152,27 @@
       "schedNotes": "",
       "id": "BX68hZD"
     }
+  ],
+  "representatives":[
+    {
+      "name":"Allen Andersen",
+      "title":"CustomerRep",
+      "uid":"aa0001"
+    },
+    {
+      "name":"Bill Brown",
+      "title":"CustomerRep",
+      "uid":"bb0002"
+    },
+    {
+      "name":"Charlie Carlson",
+      "title":"CustomerRep",
+      "uid":"cc0003"
+    },
+    {
+      "name":"Daniel Darby",
+      "title":"CustomerRep",
+      "uid":"dd0004"
+    }
   ]
 }
