@@ -8,11 +8,11 @@ export default function Inventory() {
 
 
   const handleEdit = (id)=>{
-    navigate(`/info/${id}`)
+    navigate(`/customers/${id}`)
   }
 
   const handleStatus = (id)=>{
-    navigate(`/customers/${id}`)
+    navigate(`/info/${id}`)
   }
 
   useEffect(()=>{

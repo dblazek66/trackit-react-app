@@ -14,6 +14,30 @@
     margin-right: 1em;
     margin-left: 1em;
   }
+  h1,h2,h3,h4,h5{
+    margin-left: 1em;
+    color: #2c78ce;
+  }
+
+  .container{
+    width: 100%;
+    padding-right: 1em;
+    padding-left: 1em;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .container-fluid{
+    width: 100%;
+    padding-right: 10%;
+    padding-left: 10%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .brdr-btm{
+    margin:1em 0;
+    border-bottom: #d1d1d1 solid 1px;
+  }
   /*
   dialog{
     aspect-ratio: 1/1;
@@ -235,7 +259,6 @@
     min-height: 400px;
   }
  
-
   .title{
     text-align: center;
     font-weight: bold;
@@ -274,3 +297,31 @@
     text-align:center;
   }
 
+  .sched-title{
+    background-color: #5d646b;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    padding: .5em;
+  }
+.notes{
+  font-style: italic;
+  color: #8c8d8f;
+}
+.dash-card{
+  border: #bfbfc0 solid 1px;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: center;
+}
+.dash-title{
+  font-size: large;
+  color: #666;
+  font-weight: bold;
+}
+.dash-count{
+  font-size: 42pt;
+  color: #2c78ce;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  padding: .5em;
+}

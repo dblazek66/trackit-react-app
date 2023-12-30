@@ -5,7 +5,7 @@ import DashBoard from "./DashBoard";
 import Customers from "./Customers";
 import NavBar from "./NavBar"
 import Info from "./Info";
-import Dialog from "./Dialog";
+import Schedule from "./Schedule";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 
 export default function App(){
@@ -21,7 +21,9 @@ export default function App(){
           <Route path="/" element={<DashBoard/>}/>
           <Route path="/inventory" element={<Inventory/>}/>
           <Route path="/customers" element={<Customers/>}/>
+          <Route path="/customers/:id" element={<Customers/>}/>
           <Route path="/info/:id" element={<Info/>}/>
+          <Route path="/Schedule" element={<Schedule/>}/>
           </Routes>        
       </div>
     </Router>
