@@ -55,6 +55,12 @@ export default function Dashboard() {
       <h2>Dashboard</h2>
       <div className="container">
         <div className="grid">
+        <div className="col-1"></div>
+            <div className="col-10">
+                <div className="dash-card dash-title">Ticket Statuses</div>
+            </div>
+            <div className="col-1"></div>
+            <div className="col-1"></div>
           <div className="col-2">
             <div className="dash-card">
               <div className="dash-title">New</div>
@@ -85,6 +91,7 @@ export default function Dashboard() {
               <div className="dash-count">{inwork}</div>
             </div>
           </div>
+          <div className="col-1"></div>
         </div>
       </div>
     </>

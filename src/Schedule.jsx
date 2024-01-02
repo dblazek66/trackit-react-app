@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 export default function Schedule(){
     const [schedule,setSchedule]=useState([])
-
+    const [groupByDate,setGroupByDate]=useState([])
     const params = new URLSearchParams({
         'Status':'Scheduled'
     })
@@ -20,21 +20,46 @@ export default function Schedule(){
         return formatDate + " " + time
     }
 
+    function groupSchedDate(data){
+        let schedDates=[]
+        data.map((item)=>{
+            const schedDate = item.ScheduleDate
+            if(!schedDates[schedDate]){
+                schedDates[schedDate]=[]
+            }
+            schedDates[schedDate].push(item)
+        })
+        
+        setTimeout(()=> setGroupByDate(schedDates),1000)
+        console.log(groupByDate)
+    }
+  
+
     useEffect(()=>{
         fetch(`http://localhost:8000/customers?${params}`).then((res) => {
             return res.json();
           })
           .then((data) => {
             setSchedule(data)
-            console.log(data)
-          }); 
+            groupSchedDate(data)
+           }); 
     },[])
     return(
         <>
         <h2>Schedule</h2>
+            {
+                groupByDate && groupByDate.length && groupByDate.forEach((item)=>{
+                    return(
+                        <p>{Object.keys(item)}</p>
+                    )
+                })
+            }
+
             {schedule && schedule.length && schedule.map((item)=>{
                 return(
+                   
                     <div className="container grid" key={item.id}>
+
                         <div className="col-12 sched-title">{formatSchedDate(item.ScheduleDate,item.ScheduleTime)}</div>
                         <div className="col-3 ">{item.Customer} - {item.Contact}</div>
                         <div className="col-3">{item.Phone || item.ContactInfo}</div>

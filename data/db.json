@@ -12,10 +12,10 @@
       "Zip":"00000-0000",
       "Contact": "Jimbo Johnson",
       "ContactInfo": "000-999-5254",
-      "CustomerNotes": "-",
+      "CustomerNotes": "This is a previous customer. The customer has been dissatisfied with past interactions.",
       "LastContacted": "",
       "Status": "New",
-      "AssignedTo": "-",
+      "AssignedTo": "cc0003",
       "ScheduleDate": "",
       "ScheduleTime": "",
       "ScheduleLocation": "",
@@ -83,7 +83,30 @@
       "ScheduleTime": "11:30 AM",
       "ScheduleLocation": "5600 Yummy Blvd, Sprinkles, MD",
       "ScheduleNotes": "Park on side street."
+    },
+    {
+      "id": "5",
+      "Customer": "Evil Eddies Edible Eats",
+      "TicketNum": "1005",
+      "Phone": "536-869-8421",
+      "Email": "dddd@gmail.com",
+      "Address": "635 East West Street",
+      "City": "Poundcake",
+      "State": "Maryland",
+      "Zip":"00000-0000",
+      "Contact": "Ed Edwards",
+      "ContactInfo": "",
+      "CustomerNotes": "-",
+      "LastContacted": "2023-12-22",
+      "Status": "Scheduled",
+      "AssignedTo": "-",
+      "ScheduleDate": "2024-01-24",
+      "ScheduleTime": "09:30 AM",
+      "ScheduleLocation": "635 East West Street, Poundcake, MD",
+      "ScheduleNotes": "No parking on the street. Use nearby parking garage. Ed will validate parking"
     }
+
+
   ],
   "status": [
     {
