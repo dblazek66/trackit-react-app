@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import stateList from './stateslist.js'
-
+import stateList from "./stateslist.js";
+import { FaSave } from "react-icons/fa";
 export default function Customers() {
   const { id } = useParams();
   const [button, setButton] = useState("Save");
   const [reps, setReps] = useState([]);
+  const [usStates, setUSStates] = useState([]);
   const [customerObj, setCustomerObj] = useState([]);
   const [customer, setCustomer] = useState("");
   const [phone, setPhone] = useState("");
@@ -71,19 +72,20 @@ export default function Customers() {
   }
 
   function setDefaultCustomer(data) {
+    console.log("DATA",data)
     setCustomerObj(data);
-    setCustomer(data.Customer);
-    setPhone(data.Phone);
-    setEmail(data.Email);
-    setAddress(data.Address);
-    setCity(data.City);
-    setState(data.State);
-    setZip(data.Zip);
-    setContact(data.Contact);
-    setContactPhone(data.ContactInfo);
-    setCustomerNotes(data.CustomerNotes);
-    setAssigned(data.AssignedTo);
-    setTicketNum(data.TicketNum);
+    setCustomer(data.Customer||'');
+    setPhone(data.Phone||'');
+    setEmail(data.Email||'');
+    setAddress(data.Address||'');
+    setCity(data.City||'');
+    setState(data.State)||'';
+    setZip(data.Zip||'');
+    setContact(data.Contact||'');
+    setContactPhone(data.ContactInfo||'');
+    setCustomerNotes(data.CustomerNotes||'');
+    setAssigned(data.AssignedTo||'');
+    setTicketNum(data.TicketNum||'');
   }
 
   useEffect(() => {
@@ -93,7 +95,6 @@ export default function Customers() {
       })
       .then((data) => {
         setReps(data);
-
       });
   }, []);
 
@@ -109,18 +110,17 @@ export default function Customers() {
       })
       .then((data) => {
         setDefaultCustomer(data);
-
         setButton("Edit Customer");
       });
   }, [id]);
 
-  useEffect(()=>{
-    console.log(stateList);
-  })
+  useEffect(() => {
+    setUSStates(stateList);
+  });
   return (
     <>
       <div className="info-card">
-        <div className="title-main">Create New Customer Record</div>
+        <div className="title-main">{button} Record</div>
         <div className="grid">
           <div className="col-4">
             <div className="title-sub">Customer</div>
@@ -152,11 +152,21 @@ export default function Customers() {
             <div className="grid">
               <div className="col-6">
                 <label>State</label>
-                <input
+                <select
                   className="input-control"
                   onChange={(e) => handleState(e.target.value)}
                   value={state}
-                />
+                >
+                  {usStates &&
+                    usStates.length &&
+                    usStates.map((item) => {
+                      return (
+                        <option key={crypto.randomUUID()} value={item.name}>
+                          {item.name}
+                        </option>
+                      );
+                    })}
+                </select>
               </div>
               <div className="col-6">
                 <label>Zip</label>
@@ -223,12 +233,9 @@ export default function Customers() {
             />
           </div>
           <div className="col-12 center">
-            <input
-              className="btn"
-              type="submit"
-              onClick={handleSubmit}
-              value={button}
-            />
+            <button className="btn" type="submit" onClick={handleSubmit}>
+              <FaSave /> {button}
+            </button>
           </div>
         </div>
       </div>

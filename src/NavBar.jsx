@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 export default function NavBar() {
   return (
     <div className="topnav">
-      <span>Trackit</span>
+      <span className="app-brand">TRACKIT</span>
       <Link to="/">DashBoard</Link >
       <Link to="/inventory">Inventory</Link>
       <Link to="/customers">New Customer</Link>

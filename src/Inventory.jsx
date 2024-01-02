@@ -59,7 +59,7 @@ export default function Inventory() {
                   <td>{item.LastContacted || "-"}</td>
                   <td>
 
-                    <button className="btn-sm btn-blue" onClick={()=>handleEdit(item.id)}>edit</button>
+                    <button className="btn-sm btn-primary" onClick={()=>handleEdit(item.id)}>edit</button>
                     <button className="btn-sm btn-red" onClick={()=>handleStatus(item.id)}>status</button>
                   </td>
                 </tr>

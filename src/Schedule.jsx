@@ -4,11 +4,12 @@ import { useParams } from "react-router-dom";
 export default function Schedule(){
     const [schedule,setSchedule]=useState([])
     const [groupByDate,setGroupByDate]=useState([])
+
     const params = new URLSearchParams({
         'Status':'Scheduled'
     })
 
-    function formatSchedDate(dte,time){
+    function formatSchedDate(dte){
         const options = {
             weekday: "long",
             year: "numeric",
@@ -17,7 +18,7 @@ export default function Schedule(){
           };
         let schedDate  = new Date(dte)
         let formatDate = schedDate.toLocaleDateString('en-US',options)
-        return formatDate + " " + time
+        return formatDate
     }
 
     function groupSchedDate(data){
@@ -29,12 +30,9 @@ export default function Schedule(){
             }
             schedDates[schedDate].push(item)
         })
-        
-        setTimeout(()=> setGroupByDate(schedDates),1000)
-        console.log(groupByDate)
-    }
+        setGroupByDate(schedDates)
+   }
   
-
     useEffect(()=>{
         fetch(`http://localhost:8000/customers?${params}`).then((res) => {
             return res.json();
@@ -42,28 +40,22 @@ export default function Schedule(){
           .then((data) => {
             setSchedule(data)
             groupSchedDate(data)
+            console.log(groupByDate)
+            
            }); 
     },[])
+
     return(
         <>
         <h2>Schedule</h2>
-            {
-                groupByDate && groupByDate.length && groupByDate.forEach((item)=>{
-                    return(
-                        <p>{Object.keys(item)}</p>
-                    )
-                })
-            }
-
             {schedule && schedule.length && schedule.map((item)=>{
                 return(
-                   
                     <div className="container grid" key={item.id}>
-
-                        <div className="col-12 sched-title">{formatSchedDate(item.ScheduleDate,item.ScheduleTime)}</div>
+                        <div className="col-12 sched-title">{formatSchedDate(item.ScheduleDate)}</div>
+                        <div className="col-2 sched-time">{item.ScheduleTime}</div>
                         <div className="col-3 ">{item.Customer} - {item.Contact}</div>
-                        <div className="col-3">{item.Phone || item.ContactInfo}</div>
-                        <div className="col-6">{item.ScheduleLocation}</div>
+                        <div className="col-2">{item.Phone || item.ContactInfo}</div>
+                        <div className="col-4">{item.ScheduleLocation}</div>
                         <div className="col-12 notes">{item.ScheduleNotes}</div>
                         <div className="col-12"> </div>
                     </div>
