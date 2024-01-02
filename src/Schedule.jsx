@@ -6,7 +6,9 @@ export default function Schedule(){
     const [groupByDate,setGroupByDate]=useState([])
 
     const params = new URLSearchParams({
-        'Status':'Scheduled'
+        'Status':'Scheduled',
+        '_sort':'ScheduleDate,ScheduleTime',
+        'order':'asc'
     })
 
     function formatSchedDate(dte){
@@ -22,15 +24,16 @@ export default function Schedule(){
     }
 
     function groupSchedDate(data){
-        let schedDates=[]
-        data.map((item)=>{
-            const schedDate = item.ScheduleDate
-            if(!schedDates[schedDate]){
-                schedDates[schedDate]=[]
-            }
-            schedDates[schedDate].push(item)
-        })
-        setGroupByDate(schedDates)
+        const result = Map.groupBy( data ,({ScheduleDate}) => ScheduleDate )
+        setGroupByDate(result)
+        //console.log(groupByDate)
+        //console.log("RESULT",result)
+            result.forEach(element => {
+            console.log("zzz",element)
+           })
+           
+        ;
+
    }
   
     useEffect(()=>{
@@ -38,9 +41,10 @@ export default function Schedule(){
             return res.json();
           })
           .then((data) => {
+            const result = Map.groupBy( data ,({ScheduleDate}) => ScheduleDate )
             setSchedule(data)
-            groupSchedDate(data)
-            console.log(groupByDate)
+           // groupSchedDate(data)
+            //console.log(groupByDate)
             
            }); 
     },[])
@@ -48,10 +52,16 @@ export default function Schedule(){
     return(
         <>
         <h2>Schedule</h2>
-            {schedule && schedule.length && schedule.map((item)=>{
+
+            {schedule && schedule.length && schedule.map((item,index,arr)=>{
+                const prev = arr[index -1]
                 return(
                     <div className="container grid" key={item.id}>
-                        <div className="col-12 sched-title">{formatSchedDate(item.ScheduleDate)}</div>
+                        {
+                            item.ScheduleDate!=prev?.ScheduleDate ?
+                                <div className="col-12 sched-title">{formatSchedDate(item.ScheduleDate)}</div>
+                                : ''
+                        }
                         <div className="col-2 sched-time">{item.ScheduleTime}</div>
                         <div className="col-3 ">{item.Customer} - {item.Contact}</div>
                         <div className="col-2">{item.Phone || item.ContactInfo}</div>

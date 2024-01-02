@@ -23,11 +23,11 @@ export default function StatusHistory({id, refresh}){
         <div className="title-main">Status History</div>
         {statHist && statHist.length && statHist.map((item)=>{
             return(
-                    <div className="grid" key={item.id}>
-                        <div className="col-3"> {item.statusDate} </div>
-                        <div className="col-3"> {item.Status} </div>
-                        <div className="col-6"> {item.statusNotes}</div>                        
-                    </div>
+                <div className="grid" key={item.id}>
+                    <div className="col-3"> {item.statusDate} </div>
+                    <div className="col-3"> {item.Status} </div>
+                    <div className="col-6"> {item.statusNotes}</div>                        
+                </div>
             )
         })}
         </div>
