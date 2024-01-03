@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import StatusHistory from "./StatusHistory";
+import InfoDem from "./InfoDem";
 
 export default function Info() {
 
@@ -17,6 +18,7 @@ export default function Info() {
   const [schedDate, setSchedDate] = useState("");
   const [schedTime, setSchedTime] = useState("");
   const [schedNotes, setSchedNotes] = useState("");
+  const [schedLocation, setSchedLocation] = useState("");
   const ref = useRef(null);
 
 //status inputs
@@ -39,15 +41,41 @@ export default function Info() {
   function handleStatusDate(sdte){ setStatusDate(sdte)  }
   function handleStatusNotes(notes){ setStatusNotes(notes) }
   //scheduling inputs
-  function handleScheduleDate(dte) { setSchedDate(dte); }
+  function handleScheduleDate(dte) { 
+    setSchedDate(dte)
+  }
   function handleScheduleTime(tm) { setSchedTime(tm); }
+  function handleScheduleLocation(loc){ setSchedLocation(loc);  }
   function handleScheduleNotes(notes){ setSchedNotes(notes)   }
-
-
 
   function getToday() {
     let dte = new Date().toISOString();
     return dte.substring(0, 10);
+  }
+
+  function formatSchedDate(dte){
+    const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+    let schedDate  = new Date(dte)
+    let formatDate = schedDate.toLocaleDateString('en-US',options)
+    return formatDate
+}
+
+function formatSchedTime(tme){
+    const [hours, minutes, seconds] = tme.split(':');
+    return `${(hours > 12) ? hours - 12 : hours}:${minutes}${seconds ? `:${seconds}` : ''} ${(hours >= 12) ? 'PM' : 'AM'}`;
+}
+
+  function statusNote(){
+    if(newstatus!="Scheduled")return statusNotes
+    const str=`Scheduled Date: ${formatSchedDate(schedDate)} 
+    Time: ${formatSchedTime(schedTime)} 
+    Location: ${schedLocation}`
+    return `${statusNotes}  ${str}`
   }
 
   function handleContactAge() {
@@ -60,27 +88,48 @@ export default function Info() {
   }
 
   const handleSubmit = (e) =>{
+
     e.preventDefault()
+    
     const status={
       custId: id,
       Status: newstatus,
       statusDate: statusDate,
-      statusNotes: statusNotes,
+      statusNotes: statusNote(),
       schedDate: schedDate,
       schedTime: schedTime,
       schedNotes:schedNotes 
     }
+
+    const customerPatch={
+      LastContacted:getToday(),
+      Status:newstatus,
+      ScheduleDate:schedDate,
+      ScheduleTime:schedTime,
+      ScheduleLocation:schedLocation,
+      ScheduleNotes:schedNotes
+    }
+
       fetch(`http://localhost:8000/status`,{
         method:'POST',
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify(status)
       }
     ).then(()=>{
+      fetch(`http://localhost:8000/customers/${id}`,
+      {
+        method:'PATCH',
+        headers: {
+          'Content-Type':'application/json'
+        },
+        body: JSON.stringify(customerPatch)
+      })
+      .then(res => res.json())
+      .then(json => console.log(json))
+
       clearFormVals()
       refreshChild()
     })
-    //clear all input fields
-    //update main record to update Status, Last Contact, scheduling info
   }
   const refreshChild = ()=>{
     setRefresh(!refresh)
@@ -92,6 +141,7 @@ export default function Info() {
     setSchedDate('')
     setSchedTime('')
     setSchedNotes('')
+    setSchedLocation('')
   }
 
   useEffect(() => {
@@ -107,75 +157,11 @@ export default function Info() {
 
   return (
     <>
+    <h2>Customer Information & Status Management</h2>
+    <div className="container">
+      <InfoDem customer={customer} age={age}/>
       <div className="row">
-        <div className="column half">
-          <div className="info-card">
-            <div className="title-main">{customer.Customer}</div>
-            <div className="grid">
-              <div className="col-3 grid-lbl">
-                <label>Ticket No.</label>
-              </div>
-              <div className="col-3 grid-val">{customer.TicketNum}</div>
-              <div className="col-3 grid-lbl">
-                <label>Status</label>
-              </div>
-              <div className="col-3 grid-val">{customer.Status}</div>
-              <div className="col-3 grid-lbl">
-                <label>Last Contact</label>
-              </div>
-              <div className="col-3 grid-val">{customer.LastContacted}</div>
-              <div className="col-3 grid-lbl"></div>
-              <div className="col-3 grid-val">{age} days ago</div>
-              <div className="title col-12">Contact Info</div>
-              <div className="col-3 grid-lbl">
-                <label>Contact</label>
-              </div>
-              <div className="col-3 grid-val">{customer.Contact}</div>
-              <div className="col-3 grid-lbl">
-                <label>Contact Info</label>
-              </div>
-              <div className="col-3 grid-val">{customer.ContactInfo}</div>
-              <div className="col-3 grid-lbl">
-                <label>Phone </label>
-              </div>
-              <div className="col-3 grid-val">{customer.Phone}</div>
-              <div className="col-3 grid-lbl">
-                <label>Email </label>
-              </div>
-              <div className="col-3 grid-val">{customer.Email}</div>
-              <div className="col-3 grid-lbl">
-                <label>Address </label>
-              </div>
-              <div className="col-9 grid-val">{customer.Address}</div>
-              <div className="col-3 grid-lbl">
-                <label>City </label>
-              </div>
-              <div className="col-3 grid-val">{customer.City}</div>
-              <div className="col-3 grid-lbl">
-                <label>State </label>
-              </div>
-              <div className="col-3 grid-val">{customer.State}</div>
-              <div className="title col-12">Schedule Info</div>
-              <div className="col-3 grid-lbl">
-                <label>Date </label>
-              </div>
-              <div className="col-3 grid-val">{customer.ScheduleDate}</div>
-              <div className="col-3 grid-lbl">
-                <label>Time </label>
-              </div>
-              <div className="col-3 grid-val">{customer.ScheduleTime}</div>
-              <div className="col-3 grid-lbl">
-                <label>Location </label>
-              </div>
-              <div className="col-9 grid-val">{customer.ScheduleLocation}</div>
-              <div className="col-3 grid-lbl"></div>
-              <div className="col-3 grid-val"></div>
-              <div className="col-3 grid-lbl"></div>
-              <div className="col-3 grid-val"></div>
-
-            </div>
-          </div>
-        </div>
+       
         <div className="column half">
           <div className="info-card">
             <div className="title-main">Manage Status</div>
@@ -190,7 +176,6 @@ export default function Info() {
                   onChange={(e) => handleStatusDate(e.target.value)}
                   type="date"
                   value={statusDate}
-      
                 />
               </div>
               <div className="col-3 grid-lbl">
@@ -252,6 +237,19 @@ export default function Info() {
                 />
               </div>
               <div className="col-3 grid-lbl">
+                <label>Location</label>
+              </div>
+              <div className="col-9 grid-val">
+                <textarea 
+                className="input-control"
+                rows="1"
+                onChange={(e) => handleScheduleLocation(e.target.value)}
+                value={schedLocation}
+                disabled={disabled}
+                >
+                </textarea>
+              </div>
+              <div className="col-3 grid-lbl">
                 <label>Schedule Notes</label>
               </div>
               <div className="col-9 grid-val">
@@ -261,19 +259,21 @@ export default function Info() {
                 onChange={(e) => handleScheduleNotes(e.target.value)}
                 value={schedNotes}
                 disabled={disabled}
-                
                 >
                 </textarea>
-              </div>
+              </div>              
             </div>
           <div className="col-12 center">
             <input type="submit" className="btn" value="Save" />
           </div>
           </form>
           </div>
-          <StatusHistory id={id} refresh={refresh}/>
+        </div>
+        <div className="column half">
+            <StatusHistory id={id} refresh={refresh}/>
         </div>
       </div>
+    </div>
     </>
   );
 }

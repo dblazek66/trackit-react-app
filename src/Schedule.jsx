@@ -52,7 +52,6 @@ export default function Schedule(){
     return(
         <>
         <h2>Schedule</h2>
-
             {schedule && schedule.length && schedule.map((item,index,arr)=>{
                 const prev = arr[index -1]
                 return(

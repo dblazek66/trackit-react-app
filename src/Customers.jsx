@@ -119,8 +119,9 @@ export default function Customers() {
   });
   return (
     <>
-      <div className="info-card">
-        <div className="title-main">{button} Record</div>
+    <h2>{button} Record</h2>
+    <div className="container">
+      <div xclassName="info-card">
         <div className="grid">
           <div className="col-4">
             <div className="title-sub">Customer</div>
@@ -238,6 +239,7 @@ export default function Customers() {
             </button>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

@@ -9,17 +9,17 @@
       "Address": "222 Main Street",
       "City": "Whoville",
       "State": "Maryland",
-      "Zip":"00000-0000",
+      "Zip": "00000-0000",
       "Contact": "Jimbo Johnson",
       "ContactInfo": "000-999-5254",
       "CustomerNotes": "This is a previous customer. The customer has been dissatisfied with past interactions.",
-      "LastContacted": "",
-      "Status": "New",
+      "LastContacted": "2024-01-02",
+      "Status": "Scheduled",
       "AssignedTo": "cc0003",
-      "ScheduleDate": "",
-      "ScheduleTime": "",
-      "ScheduleLocation": "",
-      "ScheduleNotes": ""
+      "ScheduleDate": "2024-01-31",
+      "ScheduleTime": "11:00",
+      "ScheduleLocation": "632-A Awful Avenue, Lambac, MD",
+      "ScheduleNotes": "Appointment Changed to 11am and moved to customers satellite office"
     },
     {
       "id": "2",
@@ -30,16 +30,16 @@
       "Address": "2356 Market Street",
       "City": "Rattletowwn",
       "State": "Maryland",
-      "Zip":"00000-0000",
+      "Zip": "00000-0000",
       "Contact": "Ronny Roll",
       "ContactInfo": "",
       "CustomerNotes": "-",
-      "LastContacted": "2023-12-20",
-      "Status": "Contact Initiated",
+      "LastContacted": "2024-01-03",
+      "Status": "Scheduled",
       "AssignedTo": "-",
-      "ScheduleDate": "",
-      "ScheduleTime": "",
-      "ScheduleLocation": "-",
+      "ScheduleDate": "2024-01-04",
+      "ScheduleTime": "00:36",
+      "ScheduleLocation": "Main Street Cafe",
       "ScheduleNotes": ""
     },
     {
@@ -51,7 +51,7 @@
       "Address": "9000 Park Street Suite A",
       "City": "Dingleberry",
       "State": "Maryland",
-      "Zip":"00000-0000",
+      "Zip": "00000-0000",
       "Contact": "Cassidy Yates",
       "ContactInfo": "",
       "CustomerNotes": "-",
@@ -72,7 +72,7 @@
       "Address": "5600 Yummy Blvd",
       "City": "Sprinkles",
       "State": "Maryland",
-      "Zip":"00000-0000",
+      "Zip": "00000-0000",
       "Contact": "Dandy Dave",
       "ContactInfo": "",
       "CustomerNotes": "-",
@@ -93,7 +93,7 @@
       "Address": "635 East West Street",
       "City": "Poundcake",
       "State": "Maryland",
-      "Zip":"00000-0000",
+      "Zip": "00000-0000",
       "Contact": "Ed Edwards",
       "ContactInfo": "",
       "CustomerNotes": "-",
@@ -105,8 +105,6 @@
       "ScheduleLocation": "635 East West Street, Poundcake, MD",
       "ScheduleNotes": "No parking on the street. Use nearby parking garage. Ed will validate parking"
     }
-
-
   ],
   "status": [
     {
@@ -198,28 +196,158 @@
       "schedTime": "",
       "schedNotes": "",
       "id": "BX68hZD"
+    },
+    {
+      "custId": "1",
+      "Status": "Scheduled",
+      "statusDate": "2024-01-02",
+      "statusNotes": "",
+      "schedDate": "2024-01-31",
+      "schedTime": "09:30",
+      "schedNotes": "Park in garage",
+      "id": "8_YQuC2"
+    },
+    {
+      "custId": "1",
+      "Status": "Scheduled",
+      "statusDate": "2024-01-02",
+      "statusNotes": "",
+      "schedDate": "2024-01-31",
+      "schedTime": "11:00",
+      "schedNotes": "Appointment Changed to 11am and moved to customers satellite office",
+      "id": "f7hW5NY"
+    },
+    {
+      "custId": "2",
+      "Status": "Scheduled",
+      "statusDate": "2024-01-02",
+      "statusNotes": "",
+      "schedDate": "2024-01-12",
+      "schedTime": "18:15",
+      "schedNotes": "",
+      "id": "UnM5uyX"
+    },
+    {
+      "custId": "2",
+      "Status": "Scheduled",
+      "statusDate": "2024-01-02",
+      "statusNotes": "",
+      "schedDate": "2024-01-25",
+      "schedTime": "18:10",
+      "schedNotes": "",
+      "id": "YlxXxMX"
+    },
+    {
+      "custId": "2",
+      "Status": "Scheduled",
+      "statusDate": "2024-01-03",
+      "statusNotes": "",
+      "schedDate": "2024-01-10",
+      "schedTime": "08:30",
+      "schedNotes": "",
+      "id": "VlJsw7T"
+    },
+    {
+      "custId": "2",
+      "Status": "Scheduled",
+      "statusDate": "2024-01-03",
+      "statusNotes": "",
+      "schedDate": "2024-01-24",
+      "schedTime": "00:06",
+      "schedNotes": "",
+      "id": "z6tbSW4"
+    },
+    {
+      "custId": "2",
+      "Status": "Scheduled",
+      "statusDate": "2024-01-03",
+      "statusNotes": "Scheduled Date: Monday, January 29, 2024 \n    Time: 5:07 PM \n    Location: Test",
+      "schedDate": "2024-01-30",
+      "schedTime": "17:07",
+      "schedNotes": "",
+      "id": "ZZ9ZPbL"
+    },
+    {
+      "custId": "2",
+      "Status": "Scheduled",
+      "statusDate": "2024-01-03",
+      "statusNotes": "Scheduled Date: Wednesday, January 24, 2024 \n    Time: 11:09 AM \n    Location: ",
+      "schedDate": "2024-01-25",
+      "schedTime": "11:09",
+      "schedNotes": "",
+      "id": "ThGwfnM"
+    },
+    {
+      "custId": "2",
+      "Status": "Scheduled",
+      "statusDate": "2024-01-03",
+      "statusNotes": "Override note",
+      "schedDate": "2024-01-31",
+      "schedTime": "11:10",
+      "schedNotes": "",
+      "id": "UMQ8du2"
+    },
+    {
+      "custId": "2",
+      "Status": "New",
+      "statusDate": "2024-01-03",
+      "statusNotes": "test note  Scheduled Date: Invalid Date \n    Time: :undefined AM \n    Location: ",
+      "schedDate": "",
+      "schedTime": "",
+      "schedNotes": "",
+      "id": "fu-Y70X"
+    },
+    {
+      "custId": "2",
+      "Status": "New",
+      "statusDate": "2024-01-03",
+      "statusNotes": "Test",
+      "schedDate": "",
+      "schedTime": "",
+      "schedNotes": "",
+      "id": "rqD_4wU"
+    },
+    {
+      "custId": "2",
+      "Status": "Scheduled",
+      "statusDate": "",
+      "statusNotes": "  Scheduled Date: Wednesday, January 3, 2024 \n    Time: 08:38 AM \n    Location: ",
+      "schedDate": "2024-01-04",
+      "schedTime": "08:38",
+      "schedNotes": "",
+      "id": "RYwV9vk"
+    },
+    {
+      "custId": "2",
+      "Status": "Scheduled",
+      "statusDate": "",
+      "statusNotes": "Test Note  Scheduled Date: Wednesday, January 3, 2024 \n    Time: 00:36 AM \n    Location: Main Street Cafe",
+      "schedDate": "2024-01-04",
+      "schedTime": "00:36",
+      "schedNotes": "",
+      "id": "VG7JhKJ"
     }
   ],
-  "representatives":[
+  "representatives": [
     {
-      "name":"Allen Andersen",
-      "title":"CustomerRep",
-      "uid":"aa0001"
+      "name": "Allen Andersen",
+      "title": "CustomerRep",
+      "uid": "aa0001"
     },
     {
-      "name":"Bill Brown",
-      "title":"CustomerRep",
-      "uid":"bb0002"
+      "name": "Bill Brown",
+      "title": "CustomerRep",
+      "uid": "bb0002"
     },
     {
-      "name":"Charlie Carlson",
-      "title":"CustomerRep",
-      "uid":"cc0003"
+      "name": "Charlie Carlson",
+      "title": "CustomerRep",
+      "uid": "cc0003"
     },
     {
-      "name":"Daniel Darby",
-      "title":"CustomerRep",
-      "uid":"dd0004"
+      "name": "Daniel Darby",
+      "title": "CustomerRep",
+      "uid": "dd0004"
     }
   ]
 }

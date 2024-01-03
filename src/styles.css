@@ -9,6 +9,7 @@
   --quinary:#c26f2c;
   --quinary-alt:#7c3800;
   --senary:#003d3d;
+  --octanary:#d4d1c7;
 }
 * {
     box-sizing: border-box;
@@ -30,6 +31,9 @@
     color: var(--senary);
   }
 
+  .text-highlight{
+    color: var(--quinary);
+  }
   .container{
     width: 100%;
     padding-right: 1em;
@@ -219,8 +223,14 @@
   .col-4 {
     grid-column: auto/span 4;
   }
+  .col-5 {
+    grid-column: auto/span 5;
+  }
     .col-6 {
     grid-column: auto/span 6;
+  }
+  .col-7 {
+    grid-column: auto/span 7;
   }
   .col-8 {
     grid-column: auto/span 8;
@@ -250,13 +260,13 @@
     border: var(--primary) 1px solid;
     padding:5px;
     font-size: 15px;
-    min-height: 400px;
+
   }
  
   .title{
     text-align: center;
     font-weight: bold;
-    color: var(--primary);
+    color: var(--quinary);
     margin-bottom: 1em;
     margin-top: 1em;
   }
@@ -268,6 +278,10 @@
     color: #fff;
     padding: .5em;
     margin-bottom: 1em;
+  }
+  .data-text-sm{
+    font-size: 10pt;
+    margin: 3px;
   }
   .title-sub{
     background-color: var(--tertiary);
@@ -292,7 +306,6 @@
   }
   .sched-title{
     background-color: var(--senary);
-  
     font-weight: bold;
     color: #fff;
     padding: .5em;
@@ -303,17 +316,18 @@
   }
 .notes{
   font-style: italic;
-  color: #8c8d8f;
+  color: var(--quinary-alt);
 }
 .dash-card{
-  border: #bfbfc0 solid 1px;
+  border: var(--primary) solid 1px;
   border-radius: 5px;
   padding: 15px;
   text-align: center;
+  background-color: var(--octanary)
 }
 .dash-title{
   font-size: large;
-  color: #666;
+  color: var(--tertiary);
   font-weight: bold;
 }
 .dash-count{

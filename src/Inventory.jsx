@@ -27,6 +27,10 @@ export default function Inventory() {
 
   return (
     <>
+    <h2>Inventory</h2>
+      <div className="container">
+
+
        <table>
         <thead>
           <tr>
@@ -67,6 +71,7 @@ export default function Inventory() {
             })}
         </tbody>
       </table>
+      </div>
     </>
   );
 }
