@@ -13,13 +13,13 @@
       "Contact": "Jimbo Johnson",
       "ContactInfo": "000-999-5254",
       "CustomerNotes": "This is a previous customer. The customer has been dissatisfied with past interactions.",
-      "LastContacted": "2024-01-02",
-      "Status": "Scheduled",
+      "LastContacted": "2024-01-03",
+      "Status": "In Work",
       "AssignedTo": "cc0003",
-      "ScheduleDate": "2024-01-31",
-      "ScheduleTime": "11:00",
-      "ScheduleLocation": "632-A Awful Avenue, Lambac, MD",
-      "ScheduleNotes": "Appointment Changed to 11am and moved to customers satellite office"
+      "ScheduleDate": "",
+      "ScheduleTime": ":undefined AM",
+      "ScheduleLocation": "",
+      "ScheduleNotes": ""
     },
     {
       "id": "2",
@@ -37,9 +37,9 @@
       "LastContacted": "2024-01-03",
       "Status": "Scheduled",
       "AssignedTo": "-",
-      "ScheduleDate": "2024-01-04",
-      "ScheduleTime": "00:36",
-      "ScheduleLocation": "Main Street Cafe",
+      "ScheduleDate": "2024-01-23",
+      "ScheduleTime": "1:30 PM",
+      "ScheduleLocation": "",
       "ScheduleNotes": ""
     },
     {
@@ -104,6 +104,22 @@
       "ScheduleTime": "09:30 AM",
       "ScheduleLocation": "635 East West Street, Poundcake, MD",
       "ScheduleNotes": "No parking on the street. Use nearby parking garage. Ed will validate parking"
+    },
+    {
+      "LastContacted": "2024-01-03",
+      "Customer": "George Gilligans Giant Golf Balls",
+      "TicketNum": "1006",
+      "Phone": "443-528-9999",
+      "Email": "gggg@gmail.com",
+      "Address": "123 Main Street",
+      "City": "Belview",
+      "State": "Maryland",
+      "Zip": "21111",
+      "Contact": "George Gilliagan",
+      "ContactInfo": "545-255-3666",
+      "CustomerNotes": "Currently out of country",
+      "AssignedTo": "bb0002",
+      "id": "rqWLcq6"
     }
   ],
   "status": [
@@ -326,6 +342,36 @@
       "schedTime": "00:36",
       "schedNotes": "",
       "id": "VG7JhKJ"
+    },
+    {
+      "custId": "2",
+      "Status": "Scheduled",
+      "statusDate": "2024-01-03",
+      "statusNotes": "  Scheduled Date: Tuesday, January 9, 2024 \n    Time: 1:12 PM \n    Location: ",
+      "schedDate": "2024-01-10",
+      "schedTime": "13:12",
+      "schedNotes": "",
+      "id": "fTX6HxY"
+    },
+    {
+      "custId": "2",
+      "Status": "Scheduled",
+      "statusDate": "2024-01-03",
+      "statusNotes": "  Scheduled Date: Monday, January 22, 2024 \n    Time: 1:30 PM \n    Location: ",
+      "schedDate": "2024-01-23",
+      "schedTime": "1:30 PM",
+      "schedNotes": "",
+      "id": "FFENjYF"
+    },
+    {
+      "custId": "1",
+      "Status": "In Work",
+      "statusDate": "2024-01-03",
+      "statusNotes": "Documentation Recieved",
+      "schedDate": "",
+      "schedTime": ":undefined AM",
+      "schedNotes": "",
+      "id": "jJ8Wzh5"
     }
   ],
   "representatives": [

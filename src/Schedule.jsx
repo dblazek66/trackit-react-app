@@ -1,40 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import{formatSchedDate} from "./js/common.js"
 
 export default function Schedule(){
     const [schedule,setSchedule]=useState([])
-    const [groupByDate,setGroupByDate]=useState([])
 
     const params = new URLSearchParams({
         'Status':'Scheduled',
         '_sort':'ScheduleDate,ScheduleTime',
         'order':'asc'
     })
-
-    function formatSchedDate(dte){
-        const options = {
-            weekday: "long",
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          };
-        let schedDate  = new Date(dte)
-        let formatDate = schedDate.toLocaleDateString('en-US',options)
-        return formatDate
-    }
-
-    function groupSchedDate(data){
-        const result = Map.groupBy( data ,({ScheduleDate}) => ScheduleDate )
-        setGroupByDate(result)
-        //console.log(groupByDate)
-        //console.log("RESULT",result)
-            result.forEach(element => {
-            console.log("zzz",element)
-           })
-           
-        ;
-
-   }
   
     useEffect(()=>{
         fetch(`http://localhost:8000/customers?${params}`).then((res) => {

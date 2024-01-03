@@ -2,8 +2,15 @@ import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import StatusHistory from "./StatusHistory";
 import InfoDem from "./InfoDem";
+import{formatSchedDate, timesList} from "./js/common.js"
 
 export default function Info() {
+
+/*
+  to do - add required to all fields requiring validation
+  add alert to save functions
+
+*/
 
   const { id } = useParams();
   const [customer, setCustomer] = useState([]);
@@ -19,6 +26,7 @@ export default function Info() {
   const [schedTime, setSchedTime] = useState("");
   const [schedNotes, setSchedNotes] = useState("");
   const [schedLocation, setSchedLocation] = useState("");
+  const [timesDataList,setTimesDataList]=useState([])
   const ref = useRef(null);
 
 //status inputs
@@ -53,17 +61,6 @@ export default function Info() {
     return dte.substring(0, 10);
   }
 
-  function formatSchedDate(dte){
-    const options = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      };
-    let schedDate  = new Date(dte)
-    let formatDate = schedDate.toLocaleDateString('en-US',options)
-    return formatDate
-}
 
 function formatSchedTime(tme){
     const [hours, minutes, seconds] = tme.split(':');
@@ -87,17 +84,16 @@ function formatSchedTime(tme){
     setAge(days);
   }
 
-  const handleSubmit = (e) =>{
 
+  const handleSubmit = (e) =>{
     e.preventDefault()
-    
     const status={
       custId: id,
       Status: newstatus,
       statusDate: statusDate,
       statusNotes: statusNote(),
       schedDate: schedDate,
-      schedTime: schedTime,
+      schedTime: formatSchedTime(schedTime),
       schedNotes:schedNotes 
     }
 
@@ -105,7 +101,7 @@ function formatSchedTime(tme){
       LastContacted:getToday(),
       Status:newstatus,
       ScheduleDate:schedDate,
-      ScheduleTime:schedTime,
+      ScheduleTime:formatSchedTime(schedTime),
       ScheduleLocation:schedLocation,
       ScheduleNotes:schedNotes
     }
@@ -126,7 +122,6 @@ function formatSchedTime(tme){
       })
       .then(res => res.json())
       .then(json => console.log(json))
-
       clearFormVals()
       refreshChild()
     })
@@ -144,7 +139,7 @@ function formatSchedTime(tme){
     setSchedLocation('')
   }
 
-  useEffect(() => {
+   useEffect(() => {
     fetch(`http://localhost:8000/customers/${id}`)
       .then((res) => {
         return res.json();
@@ -155,13 +150,30 @@ function formatSchedTime(tme){
       });
   }, [age]);
 
+  useEffect(()=>{
+    setTimesDataList(timesList)
+  /*  let ListofTimes=[]
+    const dList = document.querySelector("#calltimeslist")
+    timesList.forEach(element => {
+      ListofTimes.push(`<option>${element}</option>`)
+
+    });
+    let str =ListofTimes.join('')
+    dList.innerHTML=str
+*/
+  },[])
+
   return (
     <>
+        
     <h2>Customer Information & Status Management</h2>
+    <datalist id="calltimeslist">{timesDataList.map(function(time){
+                    return <option value={time}>{time}</option>
+                  })}
+                  </datalist>
     <div className="container">
       <InfoDem customer={customer} age={age}/>
       <div className="row">
-       
         <div className="column half">
           <div className="info-card">
             <div className="title-main">Manage Status</div>
@@ -232,9 +244,11 @@ function formatSchedTime(tme){
                   className="input-control"
                   onChange={(e) => handleScheduleTime(e.target.value)}
                   type="time"
+                  list="calltimeslist"
                   value={schedTime}
                   disabled={disabled}
                 />
+
               </div>
               <div className="col-3 grid-lbl">
                 <label>Location</label>
