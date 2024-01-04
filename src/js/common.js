@@ -14,6 +14,7 @@ function formatSchedDate(dte){
       };
     let schedDate  = new Date(dte)
     let formatDate = schedDate.toLocaleDateString('en-US',options)
+    if(formatDate == "Invalid Date") return ""
     return formatDate
 }
 
@@ -32,6 +33,16 @@ function validateForm(){
       return false
     }
     return true
+  }
+
+  function handleContactAge(dlc) {
+    let lastContact = new Date(dlc);
+    if (lastContact == "Invalid Date") lastContact = new Date();
+    let today = new Date();
+    let diff = today.getTime() - lastContact.getTime();
+    let days = Math.round(diff / (1000 * 3600 * 24));
+    return days
+    //setAge(days);
   }
 
 const timesList =[
@@ -284,5 +295,6 @@ const timesList =[
     stateList,
     formatSchedDate,
     timesList,
-    validateForm
+    validateForm,
+    handleContactAge
 }

@@ -141,6 +141,11 @@
   }
   tr:nth-child(even) {background-color: #f2f2f2;}
 
+  .warn{
+    color: red;
+    margin-left: 3px;
+  }
+
   .btn{
     background-color: var(--primary);
     color: #fff;
@@ -321,7 +326,8 @@
   border-radius: 5px;
   padding: 15px;
   text-align: center;
-  background-color: var(--octanary)
+  background-color: #ffffff;
+  box-shadow:  0 3px 10px rgb(0 0 0 / 0.2);
 }
 .dash-title{
   font-size: large;

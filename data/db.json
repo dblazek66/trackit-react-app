@@ -17,7 +17,7 @@
       "Status": "In Work",
       "AssignedTo": "cc0003",
       "ScheduleDate": "",
-      "ScheduleTime": ":undefined AM",
+      "ScheduleTime": "",
       "ScheduleLocation": "",
       "ScheduleNotes": ""
     },
@@ -106,7 +106,8 @@
       "ScheduleNotes": "No parking on the street. Use nearby parking garage. Ed will validate parking"
     },
     {
-      "LastContacted": "2024-01-03",
+      "LastContacted": "2023-12-03",
+      "Status":"New",
       "Customer": "George Gilligans Giant Golf Balls",
       "TicketNum": "1006",
       "Phone": "443-528-9999",
@@ -119,6 +120,10 @@
       "ContactInfo": "545-255-3666",
       "CustomerNotes": "Currently out of country",
       "AssignedTo": "bb0002",
+      "ScheduleDate": "",
+      "ScheduleTime": "",
+      "ScheduleLocation": "",
+      "ScheduleNotes": "",
       "id": "rqWLcq6"
     }
   ],

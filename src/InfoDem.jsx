@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import {formatSchedDate} from "./js/common.js"
 export default function InfoDem({ customer, age }) {
   return (
     <>
@@ -60,7 +60,7 @@ export default function InfoDem({ customer, age }) {
               <label>Schedule Date </label>
             </div>
             <div className="col-7">
-              {customer.ScheduleDate}
+              {formatSchedDate(customer.ScheduleDate)}
             </div>
               <div className="col-5">
                 <label>Schedule Time </label>

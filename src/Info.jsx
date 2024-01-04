@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import StatusHistory from "./StatusHistory";
 import InfoDem from "./InfoDem";
-import{formatSchedDate, timesList} from "./js/common.js"
+import{formatSchedDate, timesList, getToday, handleContactAge} from "./js/common.js"
 
 export default function Info() {
 
@@ -56,11 +56,6 @@ export default function Info() {
   function handleScheduleLocation(loc){ setSchedLocation(loc);  }
   function handleScheduleNotes(notes){ setSchedNotes(notes)   }
 
-  function getToday() {
-    let dte = new Date().toISOString();
-    return dte.substring(0, 10);
-  }
-
 
 function formatSchedTime(tme){
     const [hours, minutes, seconds] = tme.split(':');
@@ -73,15 +68,6 @@ function formatSchedTime(tme){
     Time: ${formatSchedTime(schedTime)} 
     Location: ${schedLocation}`
     return `${statusNotes}  ${str}`
-  }
-
-  function handleContactAge() {
-    let lastContact = new Date(customer.LastContacted);
-    if (lastContact == "Invalid Date") lastContact = new Date();
-    let today = new Date();
-    let diff = today.getTime() - lastContact.getTime();
-    let days = Math.round(diff / (1000 * 3600 * 24));
-    setAge(days);
   }
 
 
@@ -146,29 +132,19 @@ function formatSchedTime(tme){
       })
       .then((data) => {
         setCustomer(data);
-        handleContactAge();
+        setAge(handleContactAge(data.LastContacted));
       });
   }, [age]);
 
   useEffect(()=>{
     setTimesDataList(timesList)
-  /*  let ListofTimes=[]
-    const dList = document.querySelector("#calltimeslist")
-    timesList.forEach(element => {
-      ListofTimes.push(`<option>${element}</option>`)
 
-    });
-    let str =ListofTimes.join('')
-    dList.innerHTML=str
-*/
   },[])
-
   return (
     <>
-        
     <h2>Customer Information & Status Management</h2>
     <datalist id="calltimeslist">{timesDataList.map(function(time){
-                    return <option value={time}>{time}</option>
+                    return <option key={crypto.randomUUID()} value={time}>{time}</option>
                   })}
                   </datalist>
     <div className="container">

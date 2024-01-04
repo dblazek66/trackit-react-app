@@ -89,6 +89,7 @@ export default function Customers() {
       City: city,
       State: state,
       Zip: zip,
+      Status:"New",
       Contact: contact,
       ContactInfo: contactPhone,
       CustomerNotes: customerNotes,

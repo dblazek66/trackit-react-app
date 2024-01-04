@@ -1,11 +1,11 @@
 import Dialog from "./Dialog"
 import { useState,useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
-
+import { FaExclamationTriangle } from "react-icons/fa";
+import {handleContactAge} from "./js/common"
 export default function Inventory() {
   const navigate = useNavigate();
   const [customers,setCustomers] = useState(null);
-
 
   const handleEdit = (id)=>{
     navigate(`/customers/${id}`)
@@ -60,7 +60,13 @@ export default function Inventory() {
                   <td>{item.Contact}</td>
                   <td>{item.ContactInfo || item.Phone}</td>
                   <td>{item.Email}</td>
-                  <td>{item.LastContacted || "-"}</td>
+                  <td>{item.LastContacted || ""}
+                  {((item.Status=="New" 
+                    || item.Status=="Contact Initiated"
+                    || item.Status=="Contact Made") 
+                    &&  handleContactAge(item.LastContacted)>5)?
+                    <FaExclamationTriangle className="warn" title={ `${handleContactAge(item.LastContacted)} days since last contact.` } /> : ""}
+                  </td>
                   <td>
 
                     <button className="btn-sm btn-primary" onClick={()=>handleEdit(item.id)}>edit</button>

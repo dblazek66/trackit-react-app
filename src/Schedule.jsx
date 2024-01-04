@@ -20,7 +20,6 @@ export default function Schedule(){
             setSchedule(data)
            // groupSchedDate(data)
             //console.log(groupByDate)
-            
            }); 
     },[])
 

@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
+import { VscAdd, VscCalendar, VscDashboard,VscChecklist   } from "react-icons/vsc";
+
 export default function NavBar() {
   return (
     <div className="topnav">
       <span className="app-brand">TRACKIT</span>
-      <Link to="/">DashBoard</Link >
-      <Link to="/inventory">Inventory</Link>
-      <Link to="/customers">New Customer</Link>
-      <Link to="/schedule">Schedule</Link>
+      <Link to="/"><VscDashboard /> DashBoard</Link >
+      <Link to="/inventory"><VscChecklist /> Inventory</Link>
+      <Link to="/customers"><VscAdd /> New Customer</Link>
+      <Link to="/schedule"><VscCalendar /> Schedule</Link>
     </div>
   );
 }
