@@ -107,7 +107,7 @@
     },
     {
       "LastContacted": "2023-12-03",
-      "Status":"New",
+      "Status": "New",
       "Customer": "George Gilligans Giant Golf Balls",
       "TicketNum": "1006",
       "Phone": "443-528-9999",
@@ -377,28 +377,146 @@
       "schedTime": ":undefined AM",
       "schedNotes": "",
       "id": "jJ8Wzh5"
+    },
+    {
+      "custId": "undefined",
+      "Status": "",
+      "statusDate": "2024-01-04",
+      "statusNotes": "",
+      "schedDate": "",
+      "schedTime": ":undefined AM",
+      "schedNotes": "",
+      "id": "y_Bx2gs"
+    },
+    {
+      "custId": "undefined",
+      "Status": "",
+      "statusDate": "2024-01-04",
+      "statusNotes": "",
+      "schedDate": "",
+      "schedTime": ":undefined AM",
+      "schedNotes": "",
+      "id": "rLsDcgA"
+    },
+    {
+      "custId": "undefined",
+      "Status": "",
+      "statusDate": "2024-01-04",
+      "statusNotes": "",
+      "schedDate": "",
+      "schedTime": ":undefined AM",
+      "schedNotes": "",
+      "id": "vCCynp4"
+    },
+    {
+      "custId": "undefined",
+      "Status": "",
+      "statusDate": "",
+      "statusNotes": "",
+      "schedDate": "",
+      "schedTime": ":undefined AM",
+      "schedNotes": "",
+      "id": "QMexuKo"
+    },
+    {
+      "custId": "undefined",
+      "Status": "",
+      "statusDate": "",
+      "statusNotes": "",
+      "schedDate": "",
+      "schedTime": ":undefined AM",
+      "schedNotes": "",
+      "id": "C67NUTX"
+    },
+    {
+      "custId": "undefined",
+      "Status": "",
+      "statusDate": "2024-01-04",
+      "statusNotes": "",
+      "schedDate": "",
+      "schedTime": ":undefined AM",
+      "schedNotes": "",
+      "id": "2gEuaMz"
     }
   ],
-  "representatives": [
+
+  "userTypes":[
+     {
+      "id":"1",
+      "type":"Administrator",
+      "opts":""
+    },  
     {
+      "id":"2",
+      "type":"CustomerRep",
+      "opts":""
+    },
+    {
+      "id":"3",
+      "type":"Manager",
+      "opts":""
+    }
+
+  ],
+
+  "users": [
+    {
+      "id": "1",
       "name": "Allen Andersen",
       "title": "CustomerRep",
       "uid": "aa0001"
     },
     {
+      "id": "2",
       "name": "Bill Brown",
       "title": "CustomerRep",
       "uid": "bb0002"
     },
     {
+      "id": "3",
       "name": "Charlie Carlson",
       "title": "CustomerRep",
       "uid": "cc0003"
     },
     {
+      "id": "4",
       "name": "Daniel Darby",
       "title": "CustomerRep",
       "uid": "dd0004"
+    }
+  ],
+  "statusList": [
+    {
+      "id": "1",
+      "status": "New"
+    },
+    {
+      "id": "2",
+      "status": "Contact Initiated"
+    },
+    {
+      "id": "3",
+      "status": "Contact Made"
+    },
+    {
+      "id": "4",
+      "status": "In Work"
+    },
+    {
+      "id": "5",
+      "status": "Hold"
+    },
+    {
+      "id": "6",
+      "status": "Cancelled"
+    },
+    {
+      "id": "7",
+      "status": "Scheduled"
+    },
+    {
+      "status": "Completed",
+      "id": "6D8nLBJ"
     }
   ]
 }

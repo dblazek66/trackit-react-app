@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 import { getToday, stateList, validateForm } from "./js/common.js";
 import { FaSave } from "react-icons/fa";
@@ -151,8 +151,13 @@ export default function Customers() {
     setTicketNum(data.TicketNum || "");
   }
 
+  function handleStatusNav(){
+    if(id =='' || id =='undefined' || id==undefined) return
+    navigate(`/info/${id}`)
+  }
+
   useEffect(() => {
-    fetch("http://localhost:8000/representatives")
+    fetch("http://localhost:8000/users")
       .then((res) => {
         return res.json();
       })
@@ -182,7 +187,7 @@ export default function Customers() {
   });
   return (
     <>
-      <h2>{button} Record</h2>
+      <h2>{button} Record {id} </h2>
       <div className="container">
         <form>
           <div>
@@ -209,12 +214,14 @@ export default function Customers() {
                   className="input-control"
                   onChange={(e) => handleAddress(e.target.value)}
                   value={address}
+                  required
                 />
                 <label>City</label>
                 <input
                   className="input-control"
                   onChange={(e) => handleCity(e.target.value)}
                   value={city}
+                  required
                 />
                 <div className="grid">
                   <div className="col-6">
@@ -223,6 +230,7 @@ export default function Customers() {
                       className="input-control"
                       onChange={(e) => handleState(e.target.value)}
                       value={state}
+                      required
                     >
                       {usStates &&
                         usStates.length &&
@@ -241,6 +249,7 @@ export default function Customers() {
                       className="input-control"
                       onChange={(e) => handleZip(e.target.value)}
                       value={zip}
+                      required
                     />
                   </div>
                 </div>
@@ -252,22 +261,27 @@ export default function Customers() {
                   className="input-control"
                   onChange={(e) => handleContact(e.target.value)}
                   value={contact}
+                  required
                 />
                 <label>Phone</label>
                 <input
                   className="input-control"
                   onChange={(e) => setContactPhone(e.target.value)}
                   value={contactPhone}
+                  required
                 />
                 <label>Email</label>
                 <input
                   className="input-control"
                   onChange={(e) => handleEmail(e.target.value)}
                   value={email}
+                  required
                 />
               </div>
               <div className="col-4">
-                <div className="title-sub">Administrative</div>
+                <div className="title-sub">Administrative 
+                  <button onClick={()=>handleStatusNav()} className="btn-sm btn-red">Status</button>
+                </div>
                 <label>Ticket Number</label>
                 <input
                   className="input-control"

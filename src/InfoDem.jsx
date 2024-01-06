@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {formatSchedDate} from "./js/common.js"
+import { Link } from "react-router-dom";
 export default function InfoDem({ customer, age }) {
   return (
     <>
@@ -7,7 +8,7 @@ export default function InfoDem({ customer, age }) {
         <div className="col-4 info-card ">
           <div className="grid">
             <div className="col-4">
-              <label>Customer</label>
+              <Link to={`../customers/${customer.id}`}><label>Customer</label></Link>
             </div>
             <div className="col-8">{customer.Customer}</div>
             <div className="col-4">

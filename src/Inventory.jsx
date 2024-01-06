@@ -29,8 +29,6 @@ export default function Inventory() {
     <>
     <h2>Inventory</h2>
       <div className="container">
-
-
        <table>
         <thead>
           <tr>

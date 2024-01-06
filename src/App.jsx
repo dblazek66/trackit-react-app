@@ -6,8 +6,9 @@ import Customers from "./Customers";
 import NavBar from "./NavBar"
 import Info from "./Info";
 import Schedule from "./Schedule";
-
+import Admin from "./Admin";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+
 
 export default function App(){
 
@@ -22,6 +23,7 @@ export default function App(){
           <Route path="/customers/:id" element={<Customers/>}/>
           <Route path="/info/:id" element={<Info/>}/>
           <Route path="/Schedule" element={<Schedule/>}/>
+          <Route path="/admin" element={<Admin/>}/>
           </Routes>        
       </div>
     </Router>

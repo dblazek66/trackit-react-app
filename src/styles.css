@@ -10,6 +10,8 @@
   --quinary-alt:#7c3800;
   --senary:#003d3d;
   --octanary:#d4d1c7;
+  --tools:#919493;
+  --tools-alt:#c2c2c2;
 }
 * {
     box-sizing: border-box;
@@ -40,6 +42,11 @@
     padding-left: 1em;
     margin-right: auto;
     margin-left: auto;
+  }
+
+  .buffer{
+    margin-left: 1em;
+    margin-right: 1em;
   }
   .container-fluid{
     width: 100%;
@@ -133,6 +140,12 @@
     padding: 5px;
     text-align: left;
   }
+
+   table.compact td
+    {
+    padding: 2px;
+    text-align: left;
+    }
   th {
     padding-top: 5px;
     padding-bottom: 5px;
@@ -161,7 +174,7 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    padding: 2px 5px;
+    padding: 0px 5px;
     border-radius: 3px;
     margin-left: 2px;
     margin-right: 2px;
@@ -197,6 +210,27 @@
   }
   .btn-selected::before{
     content: '\27A7 ';
+  }
+
+
+  .btn-tool{
+    background-color: var(--tools);
+    color: #fff;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px;
+    min-width: 75px;
+  }
+  .btn-tool:hover{
+    background-color: var(--tools-alt);
+    color: #000;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px;
   }
 
   /*  Grid display*/
@@ -263,7 +297,7 @@
     border: var(--primary) 1px solid;
     padding:5px;
     font-size: 15px;
-
+    margin: .125em;
   }
  
   .title{
@@ -290,9 +324,25 @@
     background-color: var(--tertiary);
     text-align: center;
     font-weight: bold;
+    font-size: 13pt;
     color: #fff;
-    padding: .5em;
+    padding: .75em;
     margin-bottom: 1em;
+    width: 100%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .show{
+    display:grid;
+    transition: height 1s;
+  }
+  .hide{
+    display: none;
+  }
+  .toRight{
+    float: inline-end;
   }
   .input-control{
     font-size: 14px;

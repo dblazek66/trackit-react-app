@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { VscAdd, VscCalendar, VscDashboard,VscChecklist   } from "react-icons/vsc";
+import { VscAdd, VscCalendar, VscDashboard,VscChecklist, VscGear   } from "react-icons/vsc";
 
 export default function NavBar() {
   return (
@@ -9,6 +9,7 @@ export default function NavBar() {
       <Link to="/inventory"><VscChecklist /> Inventory</Link>
       <Link to="/customers"><VscAdd /> New Customer</Link>
       <Link to="/schedule"><VscCalendar /> Schedule</Link>
+      <Link to="/admin"><VscGear /> Administration</Link>
     </div>
   );
 }
