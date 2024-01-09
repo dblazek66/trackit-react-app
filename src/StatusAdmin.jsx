@@ -1,26 +1,13 @@
 import { useEffect, useState, useRef } from "react";
-import { FaSave, FaPlus, FaTrash, FaBan,FaChevronDown, FaChevronUp } from "react-icons/fa";
-export default function StatusAdmin() {
+import DataTools from "./DataTools";
+
+export default function StatusAdmin({collapse}) {
   const [statuses, setStatuses] = useState([]);
-  const [inputStatus, setInputStatus] = useState();
+  const [inputStatus, setInputStatus] = useState('');
   const [currentID, setCurrentID] = useState(null)
   const [refresh, setRefresh] = useState(false);
   const ref = useRef(null);
-  const [collapse,setCollapse]=useState('show');
-  const [chevron,setChevron]=useState(<FaChevronDown/>);
 
-  function handleCollapse(){
-      if(collapse == 'hide'){
-          setCollapse('show')
-          setChevron(<FaChevronDown/>)
-          return
-      }
-      if(collapse == 'show'){
-          setCollapse('hide')
-          setChevron(<FaChevronUp/>)
-          return
-      }
-  }
   function handleEditStatus(id) {
     let status = statuses.find((elem) => elem.id == id);
     setInputStatus(status.status);
@@ -64,6 +51,7 @@ export default function StatusAdmin() {
     }).then((res) => res.json())
     .then((json) => refreshChild());
   }
+  
   function handleButtonClear(){
     setCurrentID(null)
     setInputStatus('')
@@ -86,7 +74,7 @@ export default function StatusAdmin() {
 
   return (
     <>
-      <div className="title-sub" onClick={()=>handleCollapse()}>Status Management <span className="toRight">{chevron}</span></div>
+     
       <div className={`grid ${collapse}`}>
         <div className="col-6">
           <table className="compact">
@@ -112,20 +100,11 @@ export default function StatusAdmin() {
           </table>
         </div>
         <div className="col-6 buffer">
-          <div className="info-card">
-            <button className="btn-tool" onClick={(e)=>handleButtonClear()}>
-              <FaPlus /> New
-            </button>
-            <button className="btn-tool" onClick={(e)=>handleButtonSave()}>
-              <FaSave /> Save
-            </button>
-            <button className="btn-tool" onClick={(e)=>handleButtonDelete()}>
-              <FaTrash /> Delete
-            </button>
-            <button className="btn-tool" onClick={(e)=>handleButtonClear()}>
-            <FaBan /> Clear
-            </button>            
-          </div>
+        <DataTools
+            handleButtonClear={handleButtonClear}
+            handleButtonSave={handleButtonSave}
+            handleButtonDelete={handleButtonDelete}
+          />
           <div>
             <label>Status</label>
             <input 

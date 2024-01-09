@@ -1,4 +1,3 @@
-import Dialog from "./Dialog"
 import { useState,useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { FaExclamationTriangle } from "react-icons/fa";

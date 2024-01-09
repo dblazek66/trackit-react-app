@@ -1,34 +1,11 @@
 import { useEffect, useState } from "react";
-import {
-  FaSave,
-  FaPlus,
-  FaTrash,
-  FaBan,
-  FaChevronDown,
-  FaChevronUp,
-} from "react-icons/fa";
-
-export default function UserAdmin() {
+import DataTools from "./DataTools";
+export default function UserAdmin({collapse}) {
   const [reps, setReps] = useState();
   const [userTypes, setUserTypes] = useState();
   const [inputUser, setInputUser] = useState();
   const [inputUserID, setInputUserID] = useState();
   const [inputUserType, setInputUserType] = useState();
-  const [collapse, setCollapse] = useState("show");
-  const [chevron, setChevron] = useState(<FaChevronDown />);
-
-  function handleCollapse() {
-    if (collapse == "hide") {
-      setCollapse("show");
-      setChevron(<FaChevronDown />);
-      return;
-    }
-    if (collapse == "show") {
-      setCollapse("hide");
-      setChevron(<FaChevronUp />);
-      return;
-    }
-  }
 
   function handleButtonSave() {}
   function handleButtonDelete() {}
@@ -68,9 +45,6 @@ export default function UserAdmin() {
 
   return (
     <>
-      <div className="title-sub" onClick={() => handleCollapse()}>
-        User Management <span className="toRight">{chevron}</span>
-      </div>
       <div className={`grid ${collapse}`}>
         <div className="col-6">
           <table>
@@ -98,20 +72,11 @@ export default function UserAdmin() {
           </table>
         </div>
         <div className="col-6 buffer">
-          <div className="info-card">
-            <button className="btn-tool" onClick={(e) => handleButtonClear()}>
-              <FaPlus /> New
-            </button>
-            <button className="btn-tool" onClick={(e) => handleButtonSave()}>
-              <FaSave /> Save
-            </button>
-            <button className="btn-tool" onClick={(e) => handleButtonDelete()}>
-              <FaTrash /> Delete
-            </button>
-            <button className="btn-tool" onClick={(e) => handleButtonClear()}>
-              <FaBan /> Clear
-            </button>
-          </div>
+          <DataTools
+            handleButtonClear={handleButtonClear}
+            handleButtonSave={handleButtonSave}
+            handleButtonDelete={handleButtonDelete}
+          />
           <div>
             <label>User</label>
             <input

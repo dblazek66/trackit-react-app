@@ -213,7 +213,7 @@
   }
 
 
-  .btn-tool{
+  .btn-tool:hover{
     background-color: var(--tools);
     color: #fff;
     border: none;
@@ -221,9 +221,9 @@
     text-decoration: none;
     display: inline-block;
     padding: 8px;
-    min-width: 75px;
+    
   }
-  .btn-tool:hover{
+  .btn-tool{
     background-color: var(--tools-alt);
     color: #000;
     border: none;
@@ -231,6 +231,7 @@
     text-decoration: none;
     display: inline-block;
     padding: 8px;
+    min-width: 75px;
   }
 
   /*  Grid display*/

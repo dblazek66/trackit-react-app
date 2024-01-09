@@ -13,7 +13,7 @@
       "Contact": "Jimbo Johnson",
       "ContactInfo": "000-999-5254",
       "CustomerNotes": "This is a previous customer. The customer has been dissatisfied with past interactions.",
-      "LastContacted": "2024-01-03",
+      "LastContacted": "2024-01-08",
       "Status": "In Work",
       "AssignedTo": "cc0003",
       "ScheduleDate": "",
@@ -439,26 +439,27 @@
       "id": "2gEuaMz"
     }
   ],
-
-  "userTypes":[
-     {
-      "id":"1",
-      "type":"Administrator",
-      "opts":""
-    },  
+  "userTypes": [
     {
-      "id":"2",
-      "type":"CustomerRep",
-      "opts":""
+      "id": "1",
+      "type": "Administrator",
+      "opts": ""
     },
     {
-      "id":"3",
-      "type":"Manager",
-      "opts":""
+      "id": "2",
+      "type": "CustomerRep",
+      "opts": ""
+    },
+    {
+      "id": "3",
+      "type": "Manager",
+      "opts": ""
+    },
+    {
+      "type": "Supervisor",
+      "id": "Ft67Y5c"
     }
-
   ],
-
   "users": [
     {
       "id": "1",
@@ -505,10 +506,6 @@
     {
       "id": "5",
       "status": "Hold"
-    },
-    {
-      "id": "6",
-      "status": "Cancelled"
     },
     {
       "id": "7",
