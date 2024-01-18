@@ -7,7 +7,6 @@ export default function UserTypeAdmin({collapse}) {
   const [inputUserType, setInputUserType] = useState("");
   const [refresh, setRefresh] = useState(false);
   const [currentID, setCurrentID] = useState(null);
-
   const ref = useRef(null);
 
   const handleUserType = (e) => setInputUserType(e);
@@ -30,7 +29,7 @@ export default function UserTypeAdmin({collapse}) {
 
   function handleButtonSave() {
     if (!inputUserType) return;
-    if (currentID == null) {
+    if (!currentID) {
       //Add New
       fetch(`http://localhost:8000/userTypes`, {
         method: "POST",
@@ -40,7 +39,7 @@ export default function UserTypeAdmin({collapse}) {
         .then((res) => res.json())
         .then((json) => refreshChild());
     }
-    if (currentID != null) {
+    if (currentID) {
       //Edit
       fetch(`http://localhost:8000/userTypes/${currentID}`, {
         method: "PATCH",
@@ -54,13 +53,9 @@ export default function UserTypeAdmin({collapse}) {
     }
   }
   function handleButtonDelete() {
-    if (currentID == null) return;
+    if (!currentID) return;
     fetch(`http://localhost:8000/userTypes/${currentID}`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ type: inputUserType }),
     })
       .then((res) => res.json())
       .then((json) => refreshChild());
@@ -71,10 +66,7 @@ export default function UserTypeAdmin({collapse}) {
       .then((res) => {
         return res.json();
       })
-      .then((data) => {
-        setUserTypes(data);
-        console.log(data);
-      });
+      .then((data) => setUserTypes(data));
   }, [refresh]);
 
   return (
@@ -89,16 +81,16 @@ export default function UserTypeAdmin({collapse}) {
                   return (
                     <tr key={item.id}>
                       <td>{item.type}</td>
-                      <td>
+                      <td className="rAlign">
                         <button
-                          className="btn-sm btn-primary"
+                          className="btn-sm btn-edit"
                           onClick={() => handleEditUserType(item.id)}
                         >
                           edit
                         </button>
                       </td>
                     </tr>
-                  );
+                  )
                 })}
             </tbody>
           </table>
@@ -122,5 +114,5 @@ export default function UserTypeAdmin({collapse}) {
         </div>
       </div>
     </>
-  );
+  )
 }

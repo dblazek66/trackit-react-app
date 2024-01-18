@@ -11,12 +11,10 @@ export default function Admin(){
     const [collapse2,setCollapse2]=useState('show');
     const [collapse3,setCollapse3]=useState('show');
 
-
     const [chevron1,setChevron1]=useState(FaChevronDown);
     const [chevron2,setChevron2]=useState(FaChevronDown);
     const [chevron3,setChevron3]=useState(FaChevronDown);
   
-
     function show(n){
         eval(`setCollapse${n}('show')`)
         eval(`setChevron${n}(FaChevronDown)`)
@@ -50,7 +48,7 @@ export default function Admin(){
                 </div>
                 <div className="info-card">
                     <div className="title-sub" onClick={() => handleCollapse3()}>
-                        "User Types Management<span className="toRight">{chevron3}</span>{" "}
+                        User Types Management<span className="toRight">{chevron3}</span>{" "}
                     </div>                    
                     <UserTypeAdmin collapse={collapse3}/>
                 </div>

@@ -18,7 +18,7 @@ export default function StatusAdmin({collapse}) {
 
   function handleButtonSave(){
     if(!inputStatus)return
-    if(currentID == null){
+    if(!currentID){
         //Add New
         fetch(`http://localhost:8000/statusList`, {
         method: "POST",
@@ -27,7 +27,7 @@ export default function StatusAdmin({collapse}) {
       }).then((res) => res.json())
       .then((json) => refreshChild());
     }
-    if(currentID!=null){
+    if(currentID){
         //Edit
         fetch(`http://localhost:8000/statusList/${currentID}`, {
             method: "PATCH",
@@ -41,13 +41,9 @@ export default function StatusAdmin({collapse}) {
   }  
 
   function handleButtonDelete(){
-    if(currentID == null)return
+    if(!currentID)return
     fetch(`http://localhost:8000/statusList/${currentID}`, {
         method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({'status':inputStatus}),
     }).then((res) => res.json())
     .then((json) => refreshChild());
   }
@@ -74,8 +70,7 @@ export default function StatusAdmin({collapse}) {
 
   return (
     <>
-     
-      <div className={`grid ${collapse}`}>
+     <div className={`grid ${collapse}`}>
         <div className="col-6">
           <table className="compact">
             <tbody>
@@ -85,16 +80,16 @@ export default function StatusAdmin({collapse}) {
                   return (
                   <tr key={item.id}>
                       <td>{item.status}</td>
-                      <td>
+                      <td className="rAlign">
                         <button
-                          className="btn-sm btn-primary"
+                          className="btn-sm btn-edit"
                           onClick={() => handleEditStatus(item.id)}
                         >
                           edit
                         </button>
                       </td>
                     </tr>
-                    );
+                    )
                 })}
             </tbody>
           </table>
@@ -118,5 +113,5 @@ export default function StatusAdmin({collapse}) {
         </div>
       </div>
     </>
-  );
+  )
 }

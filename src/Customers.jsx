@@ -152,7 +152,7 @@ export default function Customers() {
   }
 
   function handleStatusNav(){
-    if(id =='' || id =='undefined' || id==undefined) return
+     if(!id) return
     navigate(`/info/${id}`)
   }
 
@@ -167,7 +167,7 @@ export default function Customers() {
   }, []);
 
   useEffect(() => {
-    if (typeof id === "undefined") {
+    if (!id) {
       setDefaultCustomer([]);
       setButton("New Customer");
       return;
@@ -189,7 +189,7 @@ export default function Customers() {
     <>
       <h2>{button} Record {id} </h2>
       <div className="container">
-        <form>
+        <form id="frmCustomer" name="frmCustomer">
           <div>
             <div className="grid">
               <div className="col-4">
@@ -280,7 +280,7 @@ export default function Customers() {
               </div>
               <div className="col-4">
                 <div className="title-sub">Administrative 
-                  <button onClick={()=>handleStatusNav()} className="btn-sm btn-red">Status</button>
+                <button onClick={()=>handleStatusNav()} className="btn-sm btn-edit">Status</button>
                 </div>
                 <label>Ticket Number</label>
                 <input

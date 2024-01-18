@@ -4,8 +4,9 @@ export default function DataTools({handleButtonClear,handleButtonSave,handleButt
 
     return(
         <>
-         <label>Tools</label>
+
          <div className="info-card">
+            <button className="btn-tool-label" disabled>Tools</button>
             <button className="btn-tool" onClick={(e)=>handleButtonClear()}>
               <FaPlus /> New
             </button>

@@ -15,7 +15,6 @@ export default function Info() {
   add alert to save functions
 
 */
-
   const { id } = useParams();
   const [customer, setCustomer] = useState([]);
   const [age, setAge] = useState("1");
@@ -32,7 +31,7 @@ export default function Info() {
   const [schedLocation, setSchedLocation] = useState("");
   const [timesDataList, setTimesDataList] = useState([]);
   const ref = useRef(null);
-
+  const [statuses,setStatuses] = useState([])
   //status inputs
   async function handleNewStatus(val) {
     setNewstatus(val);
@@ -50,25 +49,13 @@ export default function Info() {
     }
   }
 
-  function handleStatusDate(sdte) {
-    setStatusDate(sdte);
-  }
-  function handleStatusNotes(notes) {
-    setStatusNotes(notes);
-  }
+  const handleStatusDate = (sdte) =>  setStatusDate(sdte);
+  const handleStatusNotes = (notes) =>  setStatusNotes(notes);
   //scheduling inputs
-  function handleScheduleDate(dte) {
-    setSchedDate(dte);
-  }
-  function handleScheduleTime(tm) {
-    setSchedTime(tm);
-  }
-  function handleScheduleLocation(loc) {
-    setSchedLocation(loc);
-  }
-  function handleScheduleNotes(notes) {
-    setSchedNotes(notes);
-  }
+  const handleScheduleDate = (dte) =>  setSchedDate(dte);
+  const handleScheduleTime = (tm) =>  setSchedTime(tm);
+  const handleScheduleLocation = (loc) =>  setSchedLocation(loc);
+  const handleScheduleNotes = (notes) =>  setSchedNotes(notes);
 
   function formatSchedTime(tme) {
     const [hours, minutes, seconds] = tme.split(":");
@@ -87,7 +74,7 @@ export default function Info() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(id === 'undefined' )return
+    if(!id)return
     const status = {
       custId: id,
       Status: newstatus,
@@ -125,7 +112,8 @@ export default function Info() {
       refreshChild();
     });
   };
-  const refreshChild = () => {
+
+    const refreshChild = () => {
     setRefresh(!refresh);
   };
   function clearFormVals() {
@@ -152,6 +140,19 @@ export default function Info() {
   useEffect(() => {
     setTimesDataList(timesList);
   }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/statusList")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setStatuses(data);
+      });
+  }, []);
+
+
+
   return (
     <>
       <h2>Customer Information & Status Management</h2>
@@ -194,15 +195,11 @@ export default function Info() {
                       onChange={(e) => handleNewStatus(e.target.value)}
                     >
                       <option value=""></option>
-                      <option value="New">New</option>
-                      <option value="Contact Initiated">
-                        Contact Initiated
-                      </option>
-                      <option value="Contact Made">Contact Made</option>
-                      <option value="In Work">In Work</option>
-                      <option value="Hold">Hold</option>
-                      <option value="Cancelled">Cancelled</option>
-                      <option value="Scheduled">Scheduled</option>
+                      {statuses && statuses.length && statuses.map((item)=>{
+                        return(
+                          <option key={item.id} value={item.status}>{item.status}</option>
+                        )
+                      })}
                     </select>
                   </div>
                   <div className="col-3 grid-lbl">

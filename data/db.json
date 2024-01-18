@@ -55,13 +55,13 @@
       "Contact": "Cassidy Yates",
       "ContactInfo": "",
       "CustomerNotes": "-",
-      "LastContacted": "2023-12-22",
+      "LastContacted": "2024-01-09",
       "Status": "Scheduled",
       "AssignedTo": "-",
-      "ScheduleDate": "2024-01-19",
-      "ScheduleTime": "10:30 AM",
-      "ScheduleLocation": "522 East West Ave, Dingleberry, MD",
-      "ScheduleNotes": "Use back entrance. The secretary is on 3rd floor."
+      "ScheduleDate": "2024-01-03",
+      "ScheduleTime": "09:00 AM",
+      "ScheduleLocation": "",
+      "ScheduleNotes": ""
     },
     {
       "id": "4",
@@ -312,16 +312,6 @@
       "custId": "2",
       "Status": "New",
       "statusDate": "2024-01-03",
-      "statusNotes": "test note  Scheduled Date: Invalid Date \n    Time: :undefined AM \n    Location: ",
-      "schedDate": "",
-      "schedTime": "",
-      "schedNotes": "",
-      "id": "fu-Y70X"
-    },
-    {
-      "custId": "2",
-      "Status": "New",
-      "statusDate": "2024-01-03",
       "statusNotes": "Test",
       "schedDate": "",
       "schedTime": "",
@@ -374,69 +364,19 @@
       "statusDate": "2024-01-03",
       "statusNotes": "Documentation Recieved",
       "schedDate": "",
-      "schedTime": ":undefined AM",
+      "schedTime": "",
       "schedNotes": "",
       "id": "jJ8Wzh5"
     },
     {
-      "custId": "undefined",
-      "Status": "",
-      "statusDate": "2024-01-04",
-      "statusNotes": "",
-      "schedDate": "",
-      "schedTime": ":undefined AM",
+      "custId": "3",
+      "Status": "Scheduled",
+      "statusDate": "2024-01-09",
+      "statusNotes": "  Scheduled Date: Tuesday, January 2, 2024 \n    Time: 09:00 AM \n    Location: ",
+      "schedDate": "2024-01-03",
+      "schedTime": "09:00 AM",
       "schedNotes": "",
-      "id": "y_Bx2gs"
-    },
-    {
-      "custId": "undefined",
-      "Status": "",
-      "statusDate": "2024-01-04",
-      "statusNotes": "",
-      "schedDate": "",
-      "schedTime": ":undefined AM",
-      "schedNotes": "",
-      "id": "rLsDcgA"
-    },
-    {
-      "custId": "undefined",
-      "Status": "",
-      "statusDate": "2024-01-04",
-      "statusNotes": "",
-      "schedDate": "",
-      "schedTime": ":undefined AM",
-      "schedNotes": "",
-      "id": "vCCynp4"
-    },
-    {
-      "custId": "undefined",
-      "Status": "",
-      "statusDate": "",
-      "statusNotes": "",
-      "schedDate": "",
-      "schedTime": ":undefined AM",
-      "schedNotes": "",
-      "id": "QMexuKo"
-    },
-    {
-      "custId": "undefined",
-      "Status": "",
-      "statusDate": "",
-      "statusNotes": "",
-      "schedDate": "",
-      "schedTime": ":undefined AM",
-      "schedNotes": "",
-      "id": "C67NUTX"
-    },
-    {
-      "custId": "undefined",
-      "Status": "",
-      "statusDate": "2024-01-04",
-      "statusNotes": "",
-      "schedDate": "",
-      "schedTime": ":undefined AM",
-      "schedNotes": "",
-      "id": "2gEuaMz"
+      "id": "GPrA39W"
     }
   ],
   "userTypes": [
@@ -452,7 +392,7 @@
     },
     {
       "id": "3",
-      "type": "Manager",
+      "type": "Manager, Senior",
       "opts": ""
     },
     {
@@ -484,6 +424,18 @@
       "name": "Daniel Darby",
       "title": "CustomerRep",
       "uid": "dd0004"
+    },
+    {
+      "name": "Edward Edwards Jr",
+      "uid": "ee1005",
+      "title": "Administrator",
+      "id": "oMbUkkX"
+    },
+    {
+      "name": "Gary Garison",
+      "uid": "gg2049q",
+      "title": "Manager",
+      "id": "AHw6eDO"
     }
   ],
   "statusList": [
