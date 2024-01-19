@@ -33,43 +33,19 @@ export default function Customers() {
 
 */
 
-  function handleCustomer(e) {
-    setCustomer(e);
-  }
-
-  function handlePhone(e) {
-    setPhone(e);
-  }
-  function handleEmail(e) {
-    setEmail(e);
-  }
-  function handleAddress(e) {
-    setAddress(e);
-  }
-  function handleCity(e) {
-    setCity(e);
-  }
-  function handleState(e) {
-    setState(e);
-  }
-  function handleZip(e) {
-    setZip(e);
-  }
-  function handleContact(e) {
-    setContact(e);
-  }
-  function handleContactPhone(e) {
-    setContactPhone(e);
-  }
-  function handleCustomerNotes(e) {
-    setCustomerNotes(e);
-  }
-  function handleAssigned(e) {
-    setAssigned(e);
-  }
-  function handleTicketNum(e) {
-    setTicketNum(e);
-  }
+  const handleCustomer = (e) => setCustomer(e)
+  const handlePhone = (e) => setPhone(e)
+  const handleEmail = (e) => setEmail(e)
+  const handleAddress = (e) => setAddress(e)
+  const handleCity = (e) => setCity(e)
+  const handleState = (e) => setState(e)
+  const handleZip = (e) => setZip(e)
+  const handleContact = (e) => setContact(e)
+  const handleContactPhone = (e) => setContactPhone(e)
+  const handleCustomerNotes = (e) => setCustomerNotes(e)
+  const handleAssigned = (e) => setAssigned(e)
+  const handleTicketNum = (e) => setTicketNum(e)
+  
   function handleSubmit(e) {
     e.preventDefault();
     let valid = validateForm();
@@ -266,7 +242,7 @@ export default function Customers() {
                 <label>Phone</label>
                 <input
                   className="input-control"
-                  onChange={(e) => setContactPhone(e.target.value)}
+                  onChange={(e) => handleContactPhone(e.target.value)}
                   value={contactPhone}
                   required
                 />

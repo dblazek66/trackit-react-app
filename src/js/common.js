@@ -11,6 +11,7 @@ function formatSchedDate(dte){
         year: "numeric",
         month: "long",
         day: "numeric",
+        timeZone: 'UTC'
       };
     let schedDate  = new Date(dte)
     let formatDate = schedDate.toLocaleDateString('en-US',options)

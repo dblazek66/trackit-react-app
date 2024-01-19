@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams,Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import{formatSchedDate} from "./js/common.js"
 
 export default function Schedule(){
@@ -18,8 +18,6 @@ export default function Schedule(){
           .then((data) => {
             const result = Map.groupBy( data ,({ScheduleDate}) => ScheduleDate )
             setSchedule(data)
-           // groupSchedDate(data)
-            //console.log(groupByDate)
            }); 
     },[])
 
