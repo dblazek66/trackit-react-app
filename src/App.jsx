@@ -11,7 +11,6 @@ import Login from "./Login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 
 export default function App(){
-
   const [isLoggedin,setIsLoggedin]=useState("")
 
     useEffect(()=>{

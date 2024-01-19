@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import{formatSchedDate} from "./js/common.js"
 
 export default function Schedule(){
@@ -36,7 +36,7 @@ export default function Schedule(){
                                 : ''
                         }
                         <div className="col-2 sched-time">{item.ScheduleTime}</div>
-                        <div className="col-3 ">{item.Customer} - {item.Contact}</div>
+                        <div className="col-3 "><Link to={`../customers/${item.id}`}>{item.Customer}</Link> - {item.Contact}</div>
                         <div className="col-2">{item.Phone || item.ContactInfo}</div>
                         <div className="col-4">{item.ScheduleLocation}</div>
                         <div className="col-12 notes">{item.ScheduleNotes}</div>

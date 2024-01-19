@@ -398,6 +398,7 @@
   box-shadow:  0 3px 10px rgb(0 0 0 / 0.2);
 }
 .dash-title{
+  margin-top: 1em;
   font-size: large;
   color: var(--tertiary);
   font-weight: bold;
@@ -408,6 +409,14 @@
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   padding: .25em;
 }
+.dash-data{
+  border: var(--primary) solid 1px;
+  border-radius: 5px;
+  padding: 15px;
+  line-height: 1.25rem;
+  background-color: #ffffff;
+}
+
 .login-panel{
   background-color: var(--tools-alt);
 

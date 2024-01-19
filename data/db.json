@@ -13,17 +13,17 @@
       "Contact": "Jimbo Johnson",
       "ContactInfo": "000-999-5254",
       "CustomerNotes": "This is a previous customer. The customer has been dissatisfied with past interactions.",
-      "LastContacted": "2024-01-08",
-      "Status": "In Work",
+      "LastContacted": "2024-01-19",
+      "Status": "Scheduled",
       "AssignedTo": "cc0003",
-      "ScheduleDate": "",
-      "ScheduleTime": "",
-      "ScheduleLocation": "",
+      "ScheduleDate": "2024-01-19",
+      "ScheduleTime": "12:00 PM",
+      "ScheduleLocation": "Same as Business",
       "ScheduleNotes": ""
     },
     {
       "id": "2",
-      "Customer": "Ricky Robinsons Roll",
+      "Customer": "Ricky Robinsons Roller Rink",
       "TicketNum": "1002",
       "Phone": "255-996-6633",
       "Email": "rrr@gmail.com",
@@ -32,9 +32,9 @@
       "State": "Maryland",
       "Zip": "00000-0000",
       "Contact": "Ronny Roll",
-      "ContactInfo": "",
+      "ContactInfo": "255-996-6633 ex 111",
       "CustomerNotes": "-",
-      "LastContacted": "2024-01-03",
+      "LastContacted": "2024-01-19",
       "Status": "Scheduled",
       "AssignedTo": "-",
       "ScheduleDate": "2024-01-23",
@@ -377,6 +377,26 @@
       "schedTime": "09:00 AM",
       "schedNotes": "",
       "id": "GPrA39W"
+    },
+    {
+      "custId": "1",
+      "Status": "Scheduled",
+      "statusDate": "2024-01-19",
+      "statusNotes": "  Scheduled Date: Wednesday, January 17, 2024 \n    Time: 12:00 PM \n    Location: Same as Business",
+      "schedDate": "2024-01-18",
+      "schedTime": "12:00 PM",
+      "schedNotes": "Mr. Johnson will email remaining records",
+      "id": "3kMeQAX"
+    },
+    {
+      "custId": "1",
+      "Status": "Scheduled",
+      "statusDate": "2024-01-19",
+      "statusNotes": "  Scheduled Date: Wednesday, January 17, 2024 \n    Time: 12:00 PM \n    Location: Same as Business",
+      "schedDate": "2024-01-18",
+      "schedTime": "12:00 PM",
+      "schedNotes": "",
+      "id": "E9Sl_7z"
     }
   ],
   "userTypes": [
@@ -405,37 +425,49 @@
       "id": "1",
       "name": "Allen Andersen",
       "title": "CustomerRep",
-      "uid": "aa0001"
+      "uid": "aa0001",
+      "email": "aandersen@email.com",
+      "phone": "444-321-0001"
     },
     {
       "id": "2",
       "name": "Bill Brown",
       "title": "CustomerRep",
-      "uid": "bb0002"
+      "uid": "bb0002",
+      "email": "bbrown@email.com",
+      "phone": "444-321-0002"
     },
     {
       "id": "3",
       "name": "Charlie Carlson",
       "title": "CustomerRep",
-      "uid": "cc0003"
+      "uid": "cc0003",
+      "email": "ccarlson@email.com",
+      "phone": "444-321-0003"
     },
     {
       "id": "4",
       "name": "Daniel Darby",
       "title": "CustomerRep",
-      "uid": "dd0004"
+      "uid": "dd0004",
+      "email": "ddarby@email.com",
+      "phone": "444-321-0004"
     },
     {
       "name": "Edward Edwards Jr",
       "uid": "ee1005",
       "title": "Administrator",
-      "id": "oMbUkkX"
+      "id": "oMbUkkX",
+      "email": "eedwards@email.com",
+      "phone": "444-321-0005"
     },
     {
       "name": "Gary Garison",
       "uid": "gg2049q",
       "title": "Manager",
-      "id": "AHw6eDO"
+      "id": "AHw6eDO",
+      "email": "ggarison@email.com",
+      "phone": "444-321-0006"
     }
   ],
   "statusList": [
