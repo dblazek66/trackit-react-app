@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { FaTicketAlt } from "react-icons/fa";
 export default function DashOne(){
     const [statusCounts,setStatusCounts] = useState([])
 
@@ -57,7 +57,7 @@ export default function DashOne(){
         <div className="grid">
         <div className="col-1"></div>
             <div className="col-10">
-                <div className="dash-card dash-title">Ticket Statuses</div>
+                <div className="dash-card dash-title"><FaTicketAlt /> Ticket Statuses</div>
             </div>
             <div className="col-1"></div>
             <div className="col-1"></div>

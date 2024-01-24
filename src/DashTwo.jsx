@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { formatSchedDate, getToday } from "./js/common.js";
+import { FaCalendar, FaUser  } from "react-icons/fa";
 
 export default function DashTwo() {
   const [users, setUsers] = useState();
@@ -24,7 +25,6 @@ export default function DashTwo() {
   }, []);
 
   useEffect(() => {
-    console.log(getToday())
     fetch(`http://localhost:8000/customers?${params}`)
       .then((res) => {
         return res.json();
@@ -39,10 +39,10 @@ export default function DashTwo() {
       <div className="grid">
         <div className="col-1"></div>
         <div className="col-5">
-          <div className="dash-card dash-title">User Directory</div>
+          <div className="dash-card dash-title"><FaUser /> User Directory</div>
         </div>
         <div className="col-5">
-          <div className="dash-card dash-title">Scheduled - Upcoming</div>
+          <div className="dash-card dash-title"><FaCalendar /> Scheduled - Upcoming</div>
         </div>
         <div className="col-1"></div> {/*end row one */}
         <div className="col-1"></div>
@@ -51,7 +51,7 @@ export default function DashTwo() {
             users.length &&
             users.map((item) => {
               return (
-                <div className="grid">
+                <div className="grid" key={item.uid}>
                   <div className="col-4">{item.name}</div>
                   <div className="col-4">{item.phone}</div>
                   <div className="col-4">{item.email}</div>
@@ -64,11 +64,12 @@ export default function DashTwo() {
             schedule.length &&
             schedule.filter((dte)=>dte.ScheduleDate>=getToday()).map((item) => {
               return (
-                <div className="grid">
-                  <div className="col-8">
+                <div className="grid text-sm text-pri" key={item.id}>
+                  <div className="col-5">
                     {formatSchedDate(item.ScheduleDate)}
                   </div>
-                  <div className="col-4">{item.ScheduleTime}</div>
+                  <div className="col-2">{item.ScheduleTime}</div>
+                  <div className="col-5">{item.Customer}</div>
                 </div>
               );
             })}

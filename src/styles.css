@@ -14,6 +14,7 @@
   --tools-alt:#c2c2c2;
   --edit:#ff2c2c;
   --edit-alt:#b40202;
+  --blueish:#356375;
 }
 * {
     box-sizing: border-box;
@@ -338,6 +339,15 @@
     font-size: 10pt;
     margin: 3px;
   }
+
+  .text-sm{
+    font-size: 9pt;
+  }
+
+  .text-pri{
+    color: var(--blueish);
+  }
+
   .title-sub{
     background-color: var(--tertiary);
     text-align: center;
@@ -400,12 +410,12 @@
 .dash-title{
   margin-top: 1em;
   font-size: large;
-  color: var(--senary);
+  color: var(--tertiary);
   font-weight: bold;
 }
 .dash-count{
   font-size: 48pt;
-  color: var(--quinary);
+  color: var(--blueish);
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   padding: .25em;
 }
